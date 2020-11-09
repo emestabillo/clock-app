@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <title>Frontend Mentor | Clock App</title>
+</head>
+<body>
+    <h1 class="sr-only">Clock app</h1>
+    <!-- quote -->
+    <article class="quote">
+      <div class="quote">
+        <p></p>
+        <img src="./assets/desktop/icon-refresh.svg" alt="refresh icon">
+      </div>
+      <div class="author"></div>
+    </article>
+
+    <!-- main time -->
+    <main class="currently">
+      <header>
+        <img src="./assets/desktop/icon-sun.svg" alt="sun icon">
+        <h2 class="greeting">, it's currently</h2>
+      </header>
+      <section lass="currently">
+        <div class="time">
+          <div class="hour"></div>
+          <div class="minutes"></div>
+          <div class="timezone"></div>
+        </div>
+        <div class="location">
+          <div class="region"></div>
+          <h3 class="country">in </h3>
+        </div>
+      </section>
+      <button>More Less</button>
+    </main>
+
+    <!-- expanded -->
+  <article class="details">
+    <div class="region">
+      <h4>Current timezone</h4>
+      <div id="region"></div>
+    </div>
+    <div class="day">
+      <h4>Day of the year</h4>
+      <div id="day"></div>
+    </div>
+    <div class="week-day">
+      <h4>Day of the week</h4>
+      <div id="week-day"></div>
+    </div>
+    <div class="week-number">
+      <h4>Current timezone</h4>
+      <div id="week-number"></div>
+    </div>
+    
+  </article>
+
+
+  Current timezone
+  Day of the year
+  Day of the week
+  Week number
+</body>
+</html>
