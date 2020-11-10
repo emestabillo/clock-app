@@ -13,6 +13,7 @@
 <body>
     <h1 class="sr-only">Clock app</h1>
     <!-- quote -->
+  <main>
     <article class="quote">
       <div class="quote">
         <p></p>
@@ -20,8 +21,47 @@
       </div>
       <div class="author"></div>
     </article>
+    <!-- time -->
+    <article class="currently">
+      <header>
+        <img src="./assets/desktop/icon-sun.svg" alt="sun icon">
+        <h2 class="greeting">, it's currently</h2>
+      </header>
+      <section lass="currently">
+        <div class="time">
+          <div class="hour"></div>
+          <div class="minutes"></div>
+          <div class="timezone"></div>
+        </div>
+        <div class="location">
+          <div class="region"></div>
+          <h3 class="country">in </h3>
+        </div>
+      </section>
+        <button>More Less</button>
+    </article>
+    <!-- expanded -->
+    <article class="details">
+      <div class="region">
+        <h4>Current timezone</h4>
+        <div id="region"></div>
+      </div>
+      <div class="day">
+        <h4>Day of the year</h4>
+        <div id="day"></div>
+      </div>
+      <div class="week-day">
+        <h4>Day of the week</h4>
+        <div id="week-day"></div>
+      </div>
+      <div class="week-number">
+        <h4>Current timezone</h4>
+        <div id="week-number"></div>
+      </div>
+    </article>
+  </main>
 
-    <!-- main time -->
+    <!-- main time
     <main class="currently">
       <header>
         <img src="./assets/desktop/icon-sun.svg" alt="sun icon">
@@ -39,33 +79,10 @@
         </div>
       </section>
       <button>More Less</button>
-    </main>
+    </main> -->
 
-    <!-- expanded -->
-  <article class="details">
-    <div class="region">
-      <h4>Current timezone</h4>
-      <div id="region"></div>
-    </div>
-    <div class="day">
-      <h4>Day of the year</h4>
-      <div id="day"></div>
-    </div>
-    <div class="week-day">
-      <h4>Day of the week</h4>
-      <div id="week-day"></div>
-    </div>
-    <div class="week-number">
-      <h4>Current timezone</h4>
-      <div id="week-number"></div>
-    </div>
-    
-  </article>
+   
 
-
-  Current timezone
-  Day of the year
-  Day of the week
-  Week number
+  <script src="/script.js"></script>
 </body>
 </html>

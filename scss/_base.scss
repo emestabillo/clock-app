@@ -3,18 +3,21 @@
     url(../assets/mobile/bg-image-daytime.jpg) no-repeat;
 }
 
+$black: hsl(0, 0%, 0%);
+$white: hsl(0, 0%, 100%);
+$dark-gray: hsl(0, 0%, 19%);
+
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
+  // scroll-behavior: smooth;
   font-size: 62.5%;
 }
 
@@ -22,16 +25,12 @@ body {
   font-family: "Inter", sans-serif;
   background-image: var(--background);
   background-size: cover;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  // color: $white;
+
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: column;
+  justify-content: center;
+  // align-items: center;
 }
 
 .sr-only {
@@ -51,4 +50,3 @@ body {
 main {
   max-width: 111rem;
 }
-/*# sourceMappingURL=main.css.map */
