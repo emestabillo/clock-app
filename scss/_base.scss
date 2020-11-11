@@ -1,8 +1,3 @@
-:root {
-  --background: linear-gradient(rgba(0, 0, 0, 0.4)),
-    url(../assets/mobile/bg-image-daytime.jpg) no-repeat;
-}
-
 $black: hsl(0, 0%, 0%);
 $white: hsl(0, 0%, 100%);
 $dark-gray: hsl(0, 0%, 19%);
@@ -19,17 +14,20 @@ html {
   box-sizing: border-box;
   // scroll-behavior: smooth;
   font-size: 62.5%;
+  height: 100%;
 }
 
 body {
   font-family: "Inter", sans-serif;
-  background-image: var(--background);
+  background: linear-gradient(rgba(0, 0, 0, 0.4)),
+    url(../assets/mobile/bg-image-daytime.jpg) no-repeat;
   background-size: cover;
-  // color: $white;
+  color: $white;
+  min-height: 100%;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  // justify-content: center;
   // align-items: center;
 }
 
@@ -49,4 +47,6 @@ body {
 
 main {
   max-width: 111rem;
+  width: 90%;
+  margin: 0 auto;
 }

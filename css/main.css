@@ -1,8 +1,3 @@
-:root {
-  --background: linear-gradient(rgba(0, 0, 0, 0.4)),
-    url(../assets/mobile/bg-image-daytime.jpg) no-repeat;
-}
-
 *,
 *::before,
 *::after {
@@ -16,12 +11,16 @@ html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-size: 62.5%;
+  height: 100%;
 }
 
 body {
   font-family: "Inter", sans-serif;
-  background-image: var(--background);
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4))), url(../assets/mobile/bg-image-daytime.jpg) no-repeat;
+  background: linear-gradient(rgba(0, 0, 0, 0.4)), url(../assets/mobile/bg-image-daytime.jpg) no-repeat;
   background-size: cover;
+  color: white;
+  min-height: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -29,9 +28,6 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
 }
 
 .sr-only {
@@ -50,5 +46,30 @@ body {
 
 main {
   max-width: 111rem;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.quote-wrapper {
+  padding-top: 3.2rem;
+}
+
+.quote-wrapper__random {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.quote-wrapper__random img {
+  height: 1.67rem;
+  width: 1.67rem;
+  margin-left: auto;
+  margin-top: 0.5rem;
+}
+
+#quote {
+  font-size: 1.2rem;
+  line-height: 2.2rem;
+  padding-right: 1.67rem;
 }
 /*# sourceMappingURL=main.css.map */

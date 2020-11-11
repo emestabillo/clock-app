@@ -13,11 +13,11 @@
 <body>
     <h1 class="sr-only">Clock app</h1>
     <!-- quote -->
-  <main>
-    <article class="quote">
-      <div class="quote">
-        <p></p>
-        <img src="./assets/desktop/icon-refresh.svg" alt="refresh icon">
+  <main>  
+    <article class="quote-wrapper">
+      <div class="quote-wrapper__random">
+        <p id="quote"></p>
+        <img src="./assets/desktop/icon-refresh.svg" alt="refresh icon" class="refresh">
       </div>
       <div class="author"></div>
     </article>
@@ -27,13 +27,12 @@
         <img src="./assets/desktop/icon-sun.svg" alt="sun icon">
         <h2 class="greeting">, it's currently</h2>
       </header>
-      <section lass="currently">
-        <div class="time">
-          <div class="hour"></div>
-          <div class="minutes"></div>
-          <div class="timezone"></div>
+      <section class="currently">
+        <div class="currently__time">
+          <div class="time-now"></div>
+          <div class="period"></div>
         </div>
-        <div class="location">
+        <div class="currently__location">
           <div class="region"></div>
           <h3 class="country">in </h3>
         </div>
@@ -42,47 +41,25 @@
     </article>
     <!-- expanded -->
     <article class="details">
-      <div class="region">
+      <div class="details__region">
         <h4>Current timezone</h4>
         <div id="region"></div>
       </div>
-      <div class="day">
+      <div class="details__day">
         <h4>Day of the year</h4>
         <div id="day"></div>
       </div>
-      <div class="week-day">
+      <div class="details__week-day">
         <h4>Day of the week</h4>
         <div id="week-day"></div>
       </div>
-      <div class="week-number">
+      <div class="details__week-number">
         <h4>Current timezone</h4>
         <div id="week-number"></div>
       </div>
     </article>
   </main>
-
-    <!-- main time
-    <main class="currently">
-      <header>
-        <img src="./assets/desktop/icon-sun.svg" alt="sun icon">
-        <h2 class="greeting">, it's currently</h2>
-      </header>
-      <section lass="currently">
-        <div class="time">
-          <div class="hour"></div>
-          <div class="minutes"></div>
-          <div class="timezone"></div>
-        </div>
-        <div class="location">
-          <div class="region"></div>
-          <h3 class="country">in </h3>
-        </div>
-      </section>
-      <button>More Less</button>
-    </main> -->
-
-   
-
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/script.js"></script>
 </body>
 </html>
