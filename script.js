@@ -2,6 +2,7 @@ function getTime(currentHour, currentMinutes) {
 	const period = document.querySelector(".period");
 	const time = document.querySelector(".time-now");
 	const greeting = document.querySelector('.conditions__greeting')
+	const icon = document.querySelector('.icon')
 
 	//Time setup
 	if (currentHour > 12) {
@@ -16,6 +17,8 @@ function getTime(currentHour, currentMinutes) {
 		currentMinutes = "0" + currentMinutes;
 	}
 
+	time.innerHTML = `${currentHour}:${currentMinutes}`;
+
 	//Greeting
 	if (currentHour >= 5 && currentHour <= 11) {
 		greeting.innerHTML = "good morning";
@@ -23,9 +26,9 @@ function getTime(currentHour, currentMinutes) {
 		greeting.innerHTML = "good afternoon";
 	} else {
 		greeting.innerHTML = "good night";
+		icon.src = './assets/desktop/icon-moon.svg';
 	}
-
-	time.innerHTML = `${currentHour}:${currentMinutes}`;
+	
 }
 
 function getQuote(quotesArray) {

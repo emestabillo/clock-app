@@ -79,6 +79,10 @@ main {
   line-height: 2.2rem;
 }
 
+.conditions {
+  text-transform: uppercase;
+}
+
 .conditions header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -87,10 +91,20 @@ main {
 }
 
 .conditions__greeting {
-  text-transform: uppercase;
   font-size: 1.5rem;
   line-height: 2.5rem;
   letter-spacing: 0.3rem;
+}
+
+.conditions__time {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.standard-time {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
 
 .time-now {
