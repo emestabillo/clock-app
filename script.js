@@ -1,24 +1,35 @@
 function getTime(currentHour, currentMinutes) {
 	const period = document.querySelector(".period");
 	const time = document.querySelector(".time-now");
+	const greeting = document.querySelector('.conditions__greeting')
 
+	//Time setup
 	if (currentHour > 12) {
 		currentHour -= 12;
 		period.innerHTML = "pm";
 	} else {
 		currentHour;
-		period.innerHTML = "am";//not working
+		period.innerHTML = "am";
 	}
 
 	if (currentMinutes < 10) {
 		currentMinutes = "0" + currentMinutes;
 	}
 
-	time.innerHTML = `${currentHour} : ${currentMinutes}`;
+	//Greeting
+	if (currentHour >= 5 && currentHour <= 11) {
+		greeting.innerHTML = "good morning";
+	} else if (currentHour >= 12 && currentHour <= 17) {
+		greeting.innerHTML = "good afternoon";
+	} else {
+		greeting.innerHTML = "good night";
+	}
+
+	time.innerHTML = `${currentHour}:${currentMinutes}`;
 }
 
 function getQuote(quotesArray) {
-	console.log(quotesArray)
+	// console.log(quotesArray)
 	let index = Math.floor(Math.random() * quotesArray.length);
 console.log(index);
 	let chosenQuote = quotesArray[index];
@@ -58,16 +69,7 @@ Promise
 			
 			getQuote(quotesArray);
 			
-			// const chosenQuote = quote[Math.floor(Math.random() * quote.length)];
-
-			// document.getElementById("quote").innerHTML = 
-			// 	chosenQuote.en;
-
-			// 	const author = document.querySelector(".author");
-			// 	author.innerHTML = chosenQuote.author;
 		})
 	)
 	.catch((err) => console.error(err));
-
-document.querySelector("#refresh").addEventListener("click", getQuote);
 

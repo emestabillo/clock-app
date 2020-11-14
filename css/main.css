@@ -78,4 +78,24 @@ main {
   font-size: 1.2rem;
   line-height: 2.2rem;
 }
+
+.conditions header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1.6rem;
+}
+
+.conditions__greeting {
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  line-height: 2.5rem;
+  letter-spacing: 0.3rem;
+}
+
+.time-now {
+  font-size: 10rem;
+  line-height: 10rem;
+  letter-spacing: -2.5px;
+}
 /*# sourceMappingURL=main.css.map */
