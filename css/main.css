@@ -48,28 +48,34 @@ main {
   max-width: 111rem;
   width: 90%;
   margin: 0 auto;
-}
-
-.quote-wrapper {
-  padding-top: 3.2rem;
+  padding: 3.17rem 0 4rem;
 }
 
 .quote-wrapper__random {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.67rem;
+      grid-template-columns: 1fr 1.67rem;
+  -webkit-column-gap: 1.6rem;
+          column-gap: 1.6rem;
+  padding-bottom: 0.8rem;
 }
 
-.quote-wrapper__random img {
-  height: 1.67rem;
-  width: 1.67rem;
-  margin-left: auto;
-  margin-top: 0.5rem;
+.quote-wrapper__random #refresh {
+  height: 1.8rem;
+  border: none;
+  cursor: pointer;
+  background: url(../assets/desktop/icon-refresh.svg) no-repeat;
+}
+
+.quote-wrapper .author {
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 2.2rem;
 }
 
 #quote {
   font-size: 1.2rem;
   line-height: 2.2rem;
-  padding-right: 1.67rem;
 }
 /*# sourceMappingURL=main.css.map */

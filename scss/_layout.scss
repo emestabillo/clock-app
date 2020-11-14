@@ -1,21 +1,28 @@
 .quote-wrapper {
-  padding-top: 3.2rem;
+  // padding-top: 3.2rem;
 
   &__random {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1.67rem;
+    column-gap: 1.6rem;
+    padding-bottom: 0.8rem;
 
-    img {
-      height: 1.67rem;
-      width: 1.67rem;
-      // padding-left: 1.67rem;
-      margin-left: auto;
-      margin-top: 0.5rem;
+    #refresh {
+      height: 1.8rem;
+      border: none;
+      cursor: pointer;
+      background: url(../assets/desktop/icon-refresh.svg) no-repeat;
     }
+  }
+  .author {
+    font-weight: 700;
+    font-size: 1.2rem;
+    line-height: 2.2rem;
   }
 }
 
 #quote {
   font-size: 1.2rem;
   line-height: 2.2rem;
-  padding-right: 1.67rem;
+  // padding-right: 1.67rem;
 }
