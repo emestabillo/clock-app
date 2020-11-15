@@ -34,10 +34,19 @@
     gap: 1.6rem;
   }
 
-  &__greeting {
+  &__greeting,
+  span {
     font-size: 1.5rem;
     line-height: 2.5rem;
     letter-spacing: 0.3rem;
+  }
+
+  span {
+    display: none;
+
+    @include med {
+      display: block;
+    }
   }
 
   &__time {
@@ -46,11 +55,14 @@
 }
 
 .standard-time {
-  align-self: flex-end;
+  align-self: center;
+  font-size: 1.5rem;
+  padding-top: 4rem;
 }
 
 .time-now {
   font-size: 10rem;
   line-height: 10rem;
   letter-spacing: -2.5px;
+  padding: 1.6rem 1.6rem 1.6rem 0;
 }

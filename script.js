@@ -1,8 +1,28 @@
-function getTime(currentHour, currentMinutes) {
-	const period = document.querySelector(".period");
-	const time = document.querySelector(".time-now");
+function getTime(currentHour, currentMinutes, currently) {
+	//DOM elements
+	const region = document.querySelector('.region');
 	const greeting = document.querySelector('.conditions__greeting')
 	const icon = document.querySelector('.icon')
+	const period = document.querySelector(".period");
+	const time = document.querySelector(".time-now");
+	const body = document.body;
+
+	region.innerHTML = currently.abbreviation;
+
+	//Greeting and icon
+	if (currentHour >= 5 && currentHour <= 11) {
+		greeting.innerHTML = "good morning";
+	} else if (currentHour >= 12 && currentHour <= 17) {
+		greeting.innerHTML = "good afternoon";
+	} else if (currentHour >= 5 && currentHour <= 17 ) {
+		body.classList.add('day');
+		icon.src = './assets/desktop/icon-sun.svg';
+	}
+	 else {
+		greeting.innerHTML = "good evening";
+		icon.src = './assets/desktop/icon-moon.svg';
+		body.classList.add('night');
+	}
 
 	//Time setup
 	if (currentHour > 12) {
@@ -18,21 +38,10 @@ function getTime(currentHour, currentMinutes) {
 	}
 
 	time.innerHTML = `${currentHour}:${currentMinutes}`;
-
-	//Greeting
-	if (currentHour >= 5 && currentHour <= 11) {
-		greeting.innerHTML = "good morning";
-	} else if (currentHour >= 12 && currentHour <= 17) {
-		greeting.innerHTML = "good afternoon";
-	} else {
-		greeting.innerHTML = "good night";
-		icon.src = './assets/desktop/icon-moon.svg';
-	}
 	
 }
 
 function getQuote(quotesArray) {
-	// console.log(quotesArray)
 	let index = Math.floor(Math.random() * quotesArray.length);
 console.log(index);
 	let chosenQuote = quotesArray[index];
@@ -54,15 +63,16 @@ Promise
 			console.log(location.data.region_name);
 
 			//Time now
+			const currently = time.data;
 			const currentTime = new Date(time.data.datetime);
 
 			let currentHour = currentTime.getHours();
 			let currentMinutes = currentTime.getMinutes();
 
 
-      getTime(currentHour, currentMinutes);
+      getTime(currentHour, currentMinutes, currently);
 
-      console.log(time.data.abbreviation);
+      // console.log(time.data.abbreviation);
 			console.log(time.data.day_of_year);
 			console.log(time.data.day_of_week);
 			console.log(time.data.week_number);

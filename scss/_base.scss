@@ -1,6 +1,26 @@
+//VARIABLES
 $black: hsl(0, 0%, 0%);
 $white: hsl(0, 0%, 100%);
 $dark-gray: hsl(0, 0%, 19%);
+
+//MEDIA QUERIES
+@mixin med {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @media screen and (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
 
 *,
 *::before,
@@ -19,16 +39,28 @@ html {
 
 body {
   font-family: "Inter", sans-serif;
-  background: linear-gradient(rgba(0, 0, 0, 0.4)),
-    url(../assets/mobile/bg-image-daytime.jpg) no-repeat;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
   color: $white;
   min-height: 100%;
+  position: relative;
 
   display: flex;
   flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background: #000;
+    opacity: 0.4;
+  }
 }
 
 .sr-only {
@@ -50,4 +82,9 @@ main {
   width: 90%;
   margin: 0 auto;
   padding: 3.17rem 0 4rem;
+
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

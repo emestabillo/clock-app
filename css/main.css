@@ -16,11 +16,13 @@ html {
 
 body {
   font-family: "Inter", sans-serif;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.4))), url(../assets/mobile/bg-image-daytime.jpg) no-repeat;
-  background: linear-gradient(rgba(0, 0, 0, 0.4)), url(../assets/mobile/bg-image-daytime.jpg) no-repeat;
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
   color: white;
   min-height: 100%;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -28,6 +30,18 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  background: #000;
+  opacity: 0.4;
 }
 
 .sr-only {
@@ -49,6 +63,17 @@ main {
   width: 90%;
   margin: 0 auto;
   padding: 3.17rem 0 4rem;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .quote-wrapper__random {
@@ -90,10 +115,21 @@ main {
   gap: 1.6rem;
 }
 
-.conditions__greeting {
+.conditions__greeting,
+.conditions span {
   font-size: 1.5rem;
   line-height: 2.5rem;
   letter-spacing: 0.3rem;
+}
+
+.conditions span {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .conditions span {
+    display: block;
+  }
 }
 
 .conditions__time {
@@ -103,13 +139,49 @@ main {
 }
 
 .standard-time {
-  -ms-flex-item-align: end;
-      align-self: flex-end;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  font-size: 1.5rem;
+  padding-top: 4rem;
 }
 
 .time-now {
   font-size: 10rem;
   line-height: 10rem;
   letter-spacing: -2.5px;
+  padding: 1.6rem 1.6rem 1.6rem 0;
+}
+
+.day {
+  background-image: url(../assets/mobile/bg-image-daytime.jpg);
+}
+
+@media screen and (min-width: 768px) {
+  .day {
+    background-image: url(../assets/tablet/bg-image-daytime.jpg);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .day {
+    background-image: url(../assets/desktop/bg-image-daytime.jpg);
+  }
+}
+
+.night {
+  background-image: url(../assets/mobile/bg-image-nighttime.jpg);
+}
+
+@media screen and (min-width: 768px) {
+  .night {
+    background-image: url(../assets/tablet/bg-image-nighttime.jpg);
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .night {
+    background-image: url(../assets/desktop/bg-image-nighttime.jpg);
+  }
 }
 /*# sourceMappingURL=main.css.map */
