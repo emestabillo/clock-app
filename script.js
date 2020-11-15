@@ -1,11 +1,14 @@
-function getTime(currentHour, currentMinutes, currently) {
 	//DOM elements
 	const region = document.querySelector('.region');
-	const greeting = document.querySelector('.conditions__greeting')
+	const greeting = document.querySelector('.currently__greeting')
 	const icon = document.querySelector('.icon')
 	const period = document.querySelector(".period");
 	const time = document.querySelector(".time-now");
 	const body = document.body;
+	const zone = document.querySelector('.country');
+
+
+	const getTime = (currentHour, currentMinutes, currently) => {
 
 	region.innerHTML = currently.abbreviation;
 
@@ -41,7 +44,13 @@ function getTime(currentHour, currentMinutes, currently) {
 	
 }
 
-function getQuote(quotesArray) {
+const getLocation = (ipLocation) => {
+	const regionName = ipLocation.region_name;
+	const countryCode = ipLocation.country_code;
+	zone.innerHTML = `in ${regionName}, ${countryCode}`;
+}
+
+const getQuote = (quotesArray) => {
 	let index = Math.floor(Math.random() * quotesArray.length);
 console.log(index);
 	let chosenQuote = quotesArray[index];
@@ -60,16 +69,15 @@ Promise
 	]).catch(() => null)
 	.then(
 		axios.spread((location, time, quotes) => {
-			console.log(location.data.region_name);
+			//Region
+			const ipLocation = location.data;
+			getLocation(ipLocation);
 
 			//Time now
 			const currently = time.data;
 			const currentTime = new Date(time.data.datetime);
-
 			let currentHour = currentTime.getHours();
 			let currentMinutes = currentTime.getMinutes();
-
-
       getTime(currentHour, currentMinutes, currently);
 
       // console.log(time.data.abbreviation);
@@ -78,8 +86,7 @@ Promise
 			console.log(time.data.week_number);
 
 			// Display quotes WORKING
-			const quotesArray = quotes.data;
-			
+			const quotesArray = quotes.data;			
 			getQuote(quotesArray);
 			
 		})

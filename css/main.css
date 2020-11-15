@@ -104,35 +104,41 @@ main {
   line-height: 2.2rem;
 }
 
-.conditions {
+.currently {
   text-transform: uppercase;
 }
 
-.conditions header {
+.currently header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 1.6rem;
 }
 
-.conditions__greeting,
-.conditions span {
+.currently__greeting,
+.currently span {
   font-size: 1.5rem;
   line-height: 2.5rem;
   letter-spacing: 0.3rem;
 }
 
-.conditions span {
+.currently span {
   display: none;
 }
 
 @media screen and (min-width: 768px) {
-  .conditions span {
+  .currently span {
     display: block;
   }
 }
 
-.conditions__time {
+.currently__location {
+  font-size: 1.5rem;
+  line-height: 2.8rem;
+  letter-spacing: 3px;
+}
+
+.time {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

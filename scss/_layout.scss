@@ -26,7 +26,7 @@
   line-height: 2.2rem;
 }
 
-.conditions {
+.currently {
   text-transform: uppercase;
 
   header {
@@ -49,9 +49,19 @@
     }
   }
 
-  &__time {
-    display: flex;
+  // &__time {
+  //   display: flex;
+  // }
+
+  &__location {
+    font-size: 1.5rem;
+    line-height: 2.8rem;
+    letter-spacing: 3px;
   }
+}
+
+.time {
+  display: flex;
 }
 
 .standard-time {
