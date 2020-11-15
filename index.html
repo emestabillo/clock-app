@@ -11,9 +11,9 @@
   <title>Frontend Mentor | Clock App</title>
 </head>
 <body>
-    <h1 class="sr-only">Clock app</h1>
+  <h1 class="sr-only">Clock app</h1>
+  <main>
     <!-- quote -->
-  <main>  
     <article class="quote-wrapper">
       <div class="quote-wrapper__random">
         <q id="quote"></q>
@@ -24,9 +24,8 @@
     <!-- time -->
     <article class="currently">
       <header>
-        <img src="./assets/desktop/icon-sun.svg" alt="sun icon" class="icon">
-        <p class="currently__greeting"></p><span>it's currently</span>
-        <!-- <p class="conditions__greeting"></p><p>, it's currently</p> -->
+        <img class="icon">
+        <p class="currently__greeting"></p><span>, it's currently</span>
       </header>
       <section class="currently__time">
         <div class="time">
@@ -40,28 +39,31 @@
           <h3 class="country">in</h3>
         </div>
       </section>
-        <button>More Less</button>
+      <button class="expand">
+        More
+        <img src="./assets/desktop/icon-arrow-up.svg" alt="arrow icon">
+      </button>
     </article>
     <!-- expanded -->
-    <!-- <article class="details">
-      <div class="details__region">
-        <h4>Current timezone</h4>
-        <div id="region"></div>
-      </div>
-      <div class="details__day">
-        <h4>Day of the year</h4>
-        <div id="day"></div>
-      </div>
-      <div class="details__week-day">
-        <h4>Day of the week</h4>
-        <div id="week-day"></div>
-      </div>
-      <div class="details__week-number">
-        <h4>Current timezone</h4>
-        <div id="week-number"></div>
-      </div>
-    </article> -->
   </main>
+  <article class="details">
+    <div class="details__region">
+      <h4>Current timezone</h4>
+      <div id="region"></div>
+    </div>
+    <div class="details__day">
+      <h4>Day of the year</h4>
+      <div id="day"></div>
+    </div>
+    <div class="details__week-day">
+      <h4>Day of the week</h4>
+      <div id="week-day"></div>
+    </div>
+    <div class="details__week-number">
+      <h4>Current timezone</h4>
+      <div id="week-number"></div>
+    </div>
+  </article>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/script.js"></script>
 </body>
