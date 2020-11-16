@@ -12,58 +12,65 @@
 </head>
 <body>
   <h1 class="sr-only">Clock app</h1>
-  <main>
-    <!-- quote -->
-    <article class="quote-wrapper">
-      <div class="quote-wrapper__random">
-        <q id="quote"></q>
-        <button id="refresh"></button>
+    <main>
+      <div class="container">
+        <div class="contents">
+          <article class="quote-wrapper">
+            <div class="quote-wrapper__random">
+              <q id="quote"></q>
+              <button id="refresh"></button>
+            </div>
+            <p class="author"></p>
+          </article>
+          <!-- time -->
+          <article class="currently">
+            <header>
+              <img class="icon">
+              <p class="currently__greeting"></p><span>, it's currently</span>
+            </header>
+            <section class="currently__time">
+              <div class="time">
+                <h2 class="time-now"></h2>
+                <div class="standard-time">
+                  <p class="period"></p>
+                  <p class="region"></p>
+                </div>
+              </div>
+              <div class="currently__location">
+                <h3 class="country">in</h3>
+              </div>
+            </section>
+            <button class="expand">More<img src="./assets/desktop/icon-arrow-up.svg" alt="arrow icon" class="arrow">
+            </button>
+          </article>
+        </div>
+      <!-- quote -->
       </div>
-      <p class="author"></p>
-    </article>
-    <!-- time -->
-    <article class="currently">
-      <header>
-        <img class="icon">
-        <p class="currently__greeting"></p><span>, it's currently</span>
-      </header>
-      <section class="currently__time">
-        <div class="time">
-          <h2 class="time-now"></h2>
-          <div class="standard-time">
-            <p class="period"></p>
-            <p class="region"></p>
-          </div>
-        </div>
-        <div class="currently__location">
-          <h3 class="country">in</h3>
-        </div>
-      </section>
-      <button class="expand">
-        More
-        <img src="./assets/desktop/icon-arrow-up.svg" alt="arrow icon">
-      </button>
-    </article>
+    </main>
+
     <!-- expanded -->
-  </main>
-  <article class="details">
-    <div class="details__region">
-      <h4>Current timezone</h4>
-      <div id="region"></div>
-    </div>
-    <div class="details__day">
-      <h4>Day of the year</h4>
-      <div id="day"></div>
-    </div>
-    <div class="details__week-day">
-      <h4>Day of the week</h4>
-      <div id="week-day"></div>
-    </div>
-    <div class="details__week-number">
-      <h4>Current timezone</h4>
-      <div id="week-number"></div>
-    </div>
-  </article>
+    <article class="details">
+      <div class="container">
+        <div class="details__region info">
+          <h4>Current timezone</h4>
+          <h3 id="timezone"></h3>
+        </div>
+        <div class="details__day info">
+          <h4>Day of the year</h4>
+          <h3  id="year-day"></h3 >
+        </div>
+        <div class="details__week-day info">
+          <h4>Day of the week</h4>
+          <h3 id="week-day"></h3>
+        </div>
+        <div class="details__week-number info">
+          <h4>Week number</h4>
+          <h3 id="week-number"></h3>
+        </div>
+
+      </div>
+      </article>
+  
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/script.js"></script>
 </body>

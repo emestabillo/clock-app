@@ -46,9 +46,12 @@ body {
   color: $white;
   min-height: 100%;
   position: relative;
+  // text-transform: uppercase;
+  overflow-y: hidden;
+  transition: all 0.5s ease;
 
-  display: flex;
-  flex-direction: column;
+  // display: flex;
+  // flex-direction: column;
 
   &::before {
     content: "";
@@ -77,14 +80,19 @@ body {
   white-space: nowrap !important;
 }
 
-main {
+.container {
   max-width: 111rem;
   width: 90%;
   margin: 0 auto;
-  padding: 3.17rem 0 4rem;
+}
 
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+// main {
+//   padding: 3.17rem 0 4rem;
+// }
+
+h4 {
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 2px;
+  line-height: 2.8rem;
 }

@@ -1,5 +1,16 @@
+main {
+  padding: 3.17rem 0 4rem;
+
+  .contents {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
 .quote-wrapper {
-  // padding-top: 3.2rem;
+  text-transform: initial;
 
   &__random {
     display: grid;
@@ -28,6 +39,7 @@
 
 .currently {
   text-transform: uppercase;
+  margin-bottom: 2rem;
 
   header {
     display: flex;
@@ -80,7 +92,7 @@
   .expand {
     border-radius: 2.8rem;
     width: 11.5rem;
-    height: 3.9rem;
+    height: 4rem;
     text-transform: uppercase;
     color: rgba(0, 0, 0, 0.5);
     font-weight: 700;
@@ -88,18 +100,59 @@
     line-height: 1.4rem;
     letter-spacing: 3.75px;
     border: none;
+    cursor: pointer;
 
     display: flex;
     align-items: center;
-    gap: 1.3rem;
-    padding: 0 0.5rem 0 1.5rem;
+    justify-content: space-between;
+    padding: 1px 0.5rem 0 1.5rem;
 
-    img {
+    .arrow {
       width: 3.2rem;
       height: 3.2rem;
       transform: rotate(180deg);
-      cursor: pointer;
-      vertical-align: middle;
+      transition: all 0.5s ease;
+    }
+
+    .rotate {
+      transform: rotate(0deg);
     }
   }
+}
+
+.details {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(40.7742px);
+  padding: 4.8rem 0 3.2rem;
+  color: $dark-gray;
+
+  .info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1.6rem;
+  }
+
+  h4 {
+  }
+
+  h3 {
+    // font-weight: 700;
+    font-size: 2rem;
+    line-height: 2.42rem;
+  }
+  // &__region{
+
+  // }
+  // &__day {
+
+  // }
+  // &__week-day {
+
+  // }
+  // &__week-number
+}
+
+.transform {
+  transform: translateY(-25.6rem);
 }

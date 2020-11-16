@@ -23,13 +23,9 @@ body {
   color: white;
   min-height: 100%;
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  overflow-y: hidden;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
 }
 
 body::before {
@@ -58,12 +54,25 @@ body::before {
   white-space: nowrap !important;
 }
 
-main {
+.container {
   max-width: 111rem;
   width: 90%;
   margin: 0 auto;
+}
+
+h4 {
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 2px;
+  line-height: 2.8rem;
+}
+
+main {
   padding: 3.17rem 0 4rem;
-  height: 100vh;
+}
+
+main .contents {
+  height: 90vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -74,6 +83,10 @@ main {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.quote-wrapper {
+  text-transform: initial;
 }
 
 .quote-wrapper__random {
@@ -106,6 +119,7 @@ main {
 
 .currently {
   text-transform: uppercase;
+  margin-bottom: 2rem;
 }
 
 .currently header {
@@ -166,7 +180,7 @@ main {
 .currently .expand {
   border-radius: 2.8rem;
   width: 11.5rem;
-  height: 3.9rem;
+  height: 4rem;
   text-transform: uppercase;
   color: rgba(0, 0, 0, 0.5);
   font-weight: 700;
@@ -174,23 +188,62 @@ main {
   line-height: 1.4rem;
   letter-spacing: 3.75px;
   border: none;
+  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  gap: 1.3rem;
-  padding: 0 0.5rem 0 1.5rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 1px 0.5rem 0 1.5rem;
 }
 
-.currently .expand img {
+.currently .expand .arrow {
   width: 3.2rem;
   height: 3.2rem;
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
-  cursor: pointer;
-  vertical-align: middle;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.currently .expand .rotate {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+.details {
+  background: rgba(255, 255, 255, 0.75);
+  -webkit-backdrop-filter: blur(40.7742px);
+          backdrop-filter: blur(40.7742px);
+  padding: 4.8rem 0 3.2rem;
+  color: #303030;
+}
+
+.details .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 1.6rem;
+}
+
+.details h3 {
+  font-size: 2rem;
+  line-height: 2.42rem;
+}
+
+.transform {
+  -webkit-transform: translateY(-25.6rem);
+          transform: translateY(-25.6rem);
 }
 
 .day {
