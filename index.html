@@ -10,11 +10,14 @@
   
   <title>Frontend Mentor | Clock App</title>
 </head>
+
+<!-- put bg on body -->
 <body>
   <h1 class="sr-only">Clock app</h1>
-    <main>
+  <main class="widgets"> <!-- put all other contents on main, transform main for popup. main 100 ht & width-->
+    <section class="top-widgets"> <!-- top section here -->
       <div class="container">
-        <div class="contents">
+        <div class="top-widgets__contents">
           <article class="quote-wrapper">
             <div class="quote-wrapper__random">
               <q id="quote"></q>
@@ -22,7 +25,7 @@
             </div>
             <p class="author"></p>
           </article>
-          <!-- time -->
+
           <article class="currently">
             <header>
               <img class="icon">
@@ -44,11 +47,9 @@
             </button>
           </article>
         </div>
-      <!-- quote -->
       </div>
-    </main>
-
-    <!-- expanded -->
+    </section>
+    <!-- bottom section here -->
     <article class="details">
       <div class="container">
         <div class="details__region info">
@@ -57,7 +58,7 @@
         </div>
         <div class="details__day info">
           <h4>Day of the year</h4>
-          <h3  id="year-day"></h3 >
+          <h3 id="year-day"></h3>
         </div>
         <div class="details__week-day info">
           <h4>Day of the week</h4>
@@ -67,10 +68,9 @@
           <h4>Week number</h4>
           <h3 id="week-number"></h3>
         </div>
-
       </div>
-      </article>
-  
+    </article>
+  </main>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/script.js"></script>
 </body>

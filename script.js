@@ -1,5 +1,5 @@
 const body = document.body;
-
+const main = document.querySelector('.widgets');
 
 function getTime(currentHour, currentMinutes, currently) {
 
@@ -116,7 +116,7 @@ Promise
 const expand = document.querySelector('.expand');
 
 function showDetails() {
-	body.classList.toggle('transform');
+	main.classList.toggle('transform');
 
 	if (expand.firstChild.nodeValue === "More") {
 		expand.firstChild.nodeValue = "Less"

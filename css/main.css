@@ -25,8 +25,6 @@ body {
   min-height: 100%;
   position: relative;
   overflow-y: hidden;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
 }
 
 body::before {
@@ -57,7 +55,7 @@ body::before {
 
 .container {
   max-width: 111rem;
-  width: 90%;
+  padding: 0 2.6rem;
   margin: 0 auto;
 }
 
@@ -68,17 +66,22 @@ h4 {
   line-height: 2.8rem;
 }
 
-main {
+.widgets {
+  height: 100%;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.top-widgets {
   padding: 3.17rem 0 4rem;
   height: 100%;
 }
 
-main .container {
+.top-widgets .container {
   height: 100%;
 }
 
-main .contents {
-  height: 59.6rem;
+.top-widgets__contents {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

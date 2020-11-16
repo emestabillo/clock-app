@@ -48,7 +48,7 @@ body {
   min-height: 100%;
   position: relative;
   overflow-y: hidden;
-  transition: all 0.5s ease;
+  // transition: all 0.5s ease;
 
   &::before {
     content: "";
@@ -79,7 +79,8 @@ body {
 
 .container {
   max-width: 111rem;
-  width: 90%;
+  // width: 90%;
+  padding: 0 2.6rem;
   margin: 0 auto;
 }
 

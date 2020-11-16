@@ -1,4 +1,9 @@
-main {
+.widgets {
+  height: 100%;
+  transition: all 0.5s ease;
+}
+
+.top-widgets {
   padding: 3.17rem 0 4rem;
   height: 100%;
 
@@ -6,8 +11,7 @@ main {
     height: 100%;
   }
 
-  .contents {
-    height: 59.6rem;
+  &__contents {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
