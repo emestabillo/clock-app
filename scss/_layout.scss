@@ -1,11 +1,17 @@
 main {
   padding: 3.17rem 0 4rem;
+  height: 100%;
+
+  .container {
+    height: 100%;
+  }
 
   .contents {
-    height: 90vh;
+    height: 59.6rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    height: 100%;
   }
 }
 
