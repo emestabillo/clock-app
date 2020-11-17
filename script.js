@@ -22,14 +22,18 @@ function getTime(currentHour, currentMinutes, currently) {
 	}
 
 	//Greeting and icon
+	let greet = '';
+
 	if (currentHour >= 5 && currentHour <= 11) {
-		greeting.innerHTML = "good morning";
+		greet = 'morning';
 	} else if (currentHour >= 12 && currentHour <= 17) {
-		greeting.innerHTML = "good afternoon";
+		greet = 'afternoon';
 	} 
 	else {
-		greeting.innerHTML = "good evening";
+		greet = 'evening';
 	}
+	
+	greeting.appendChild(document.createTextNode(greet));
 
 	//Time setup
 	if (currentHour > 12) {
