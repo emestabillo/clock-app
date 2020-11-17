@@ -41,14 +41,13 @@ body {
   font-family: "Inter", sans-serif;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
   background-attachment: fixed;
   color: $white;
   height: 100%;
   min-height: 100%;
   position: relative;
   overflow-y: hidden;
-  // transition: all 0.5s ease;
 
   &::before {
     content: "";
@@ -82,11 +81,15 @@ body {
   // width: 90%;
   padding: 0 2.6rem;
   margin: 0 auto;
+
+  @include med {
+    padding: 0 13.1rem 0 6.4rem;
+  }
 }
 
-h4 {
-  text-transform: uppercase;
-  font-weight: 400;
-  letter-spacing: 2px;
-  line-height: 2.8rem;
-}
+// h4 {
+//   text-transform: uppercase;
+//   font-weight: 400;
+//   letter-spacing: 2px;
+//   line-height: 2.8rem;
+// }
