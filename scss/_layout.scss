@@ -1,13 +1,21 @@
-main {
+.widgets {
+  height: 100%;
+  transition: all 0.5s ease;
+}
+
+.top-widgets {
   padding: 3.17rem 0 4rem;
   height: 100%;
+
+  @include med {
+    padding: 8rem 0 6.4rem;
+  }
 
   .container {
     height: 100%;
   }
 
-  .contents {
-    height: 59.6rem;
+  &__contents {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -17,6 +25,13 @@ main {
 
 .quote-wrapper {
   text-transform: initial;
+  font-size: 1.2rem;
+  line-height: 2.2rem;
+
+  @include med {
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+  }
 
   &__random {
     display: grid;
@@ -28,19 +43,40 @@ main {
       height: 1.8rem;
       border: none;
       cursor: pointer;
-      background: url(../assets/desktop/icon-refresh.svg) no-repeat;
+      background: none;
+      // background: url(../assets/desktop/icon-refresh.svg) no-repeat;
+
+      svg {
+        fill: $white;
+        outline: none;
+        transition: transform 0.15s linear;
+        opacity: 0.5;
+      }
+
+      &:focus {
+        outline: 2px dashed $white;
+      }
+
+      &:hover {
+        svg {
+          opacity: 1;
+        }
+      }
+      &::-moz-focus-inner {
+        border: 0;
+      }
+    }
+
+    .sr-only {
+      height: 1px;
+      overflow: hidden;
+      position: absolute;
+      width: 1px;
     }
   }
-  .author {
-    font-weight: 700;
-    font-size: 1.2rem;
-    line-height: 2.2rem;
-  }
 }
-
-#quote {
-  font-size: 1.2rem;
-  line-height: 2.2rem;
+.author {
+  font-weight: 700;
 }
 
 .currently {
@@ -49,7 +85,14 @@ main {
 
   header {
     display: flex;
-    gap: 1.6rem;
+  }
+
+  .icon {
+    padding-right: 1.6rem;
+
+    @include med {
+      height: 2.4rem;
+    }
   }
 
   &__greeting,
@@ -57,12 +100,18 @@ main {
     font-size: 1.5rem;
     line-height: 2.5rem;
     letter-spacing: 0.3rem;
+
+    @include med {
+      font-size: 1.8rem;
+      line-height: 2.8rem;
+      letter-spacing: 0.36rem;
+    }
   }
 
   span {
     display: none;
 
-    @include med {
+    @media screen and (min-width: 500px) {
       display: block;
     }
   }
@@ -75,24 +124,47 @@ main {
     display: flex;
   }
 
-  .standard-time {
-    align-self: center;
-    font-size: 1.5rem;
-    padding-top: 4.8rem;
-  }
-
   .time-now {
     font-size: 10rem;
     line-height: 10rem;
     letter-spacing: -2.5px;
     padding: 1.6rem 1.6rem 1.6rem 0;
+
+    @include med {
+      font-size: 17.5rem;
+      line-height: 17.5rem;
+      letter-spacing: -4.38px;
+    }
+  }
+
+  .standard-time {
+    align-self: center;
+    font-size: 1.5rem;
+    padding-top: 4.8rem;
+    font-weight: 300;
+
+    @include med {
+      font-size: 3.2rem;
+      line-height: 2.8rem;
+      padding-top: 6rem;
+    }
+
+    .period {
+      @include med {
+        padding-bottom: 1.2rem;
+      }
+    }
   }
 
   &__location {
     font-size: 1.5rem;
     line-height: 2.8rem;
     letter-spacing: 3px;
-    // padding-bottom: 4.8rem;
+
+    @include med {
+      font-size: 1.8rem;
+      letter-spacing: 3.6px;
+    }
   }
 
   .expand {
@@ -101,6 +173,7 @@ main {
     height: 4rem;
     text-transform: uppercase;
     color: rgba(0, 0, 0, 0.5);
+    background: #fff;
     font-weight: 700;
     font-size: 1.2rem;
     line-height: 1.4rem;
@@ -113,11 +186,25 @@ main {
     justify-content: space-between;
     padding: 1px 0.5rem 0 1.5rem;
 
+    @include med {
+      width: 14.6rem;
+      height: 5.6rem;
+      font-size: 1.6rem;
+      line-height: 2.8rem;
+      letter-spacing: 0.5rem;
+      padding: 0.8rem 0.9rem 0.8rem 2.1rem;
+    }
+
     .arrow {
       width: 3.2rem;
       height: 3.2rem;
       transform: rotate(180deg);
       transition: all 0.5s ease;
+
+      @include med {
+        width: 4rem;
+        height: 4rem;
+      }
     }
 
     .rotate {
@@ -132,31 +219,65 @@ main {
   padding: 4.8rem 0 3.2rem;
   color: $dark-gray;
 
+  // @include med {
+  //   padding: 11.9rem 16.6rem 11.9rem 6.4rem;
+  // }
+
   .info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 1.6rem;
+
+    // @include med {
+    //   display: unset;
+    // }
   }
 
   h4 {
+    text-transform: uppercase;
+    font-weight: 400;
+    letter-spacing: 2px;
+    line-height: 2.8rem;
+
+    // @include med {
+    //   font-size: 1.3rem;
+    //   line-height: 2.8rem;
+    //   letter-spacing: 2.6px;
+    // }
   }
 
   h3 {
     // font-weight: 700;
     font-size: 2rem;
     line-height: 2.42rem;
+
+    // @include med {
+    //   font-size: 4rem;
+    //   line-height: auto;
+    // }
   }
-  // &__region{
 
-  // }
-  // &__day {
-
-  // }
-  // &__week-day {
-
-  // }
-  // &__week-number
+  .container {
+    // @include med {
+    //   display: grid;
+    //   grid-template-columns: repeat(2, 1fr);
+    //   grid-template-rows: repeat(2, 1fr);
+    //   grid-template-areas: "region week-day" "day week-number";
+    // }
+  }
+  &__region {
+    grid-area: region;
+  }
+  &__day {
+    grid-area: day;
+  }
+  &__week-day {
+    grid-area: week-day;
+  }
+  &__week-number {
+    grid-area: week-number;
+  }
 }
 
 .transform {

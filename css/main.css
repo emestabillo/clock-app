@@ -18,15 +18,13 @@ body {
   font-family: "Inter", sans-serif;
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
   background-attachment: fixed;
   color: white;
   height: 100%;
   min-height: 100%;
   position: relative;
   overflow-y: hidden;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
 }
 
 body::before {
@@ -57,28 +55,38 @@ body::before {
 
 .container {
   max-width: 111rem;
-  width: 90%;
+  padding: 0 2.6rem;
   margin: 0 auto;
 }
 
-h4 {
-  text-transform: uppercase;
-  font-weight: 400;
-  letter-spacing: 2px;
-  line-height: 2.8rem;
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 0 13.1rem 0 6.4rem;
+  }
 }
 
-main {
+.widgets {
+  height: 100%;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+}
+
+.top-widgets {
   padding: 3.17rem 0 4rem;
   height: 100%;
 }
 
-main .container {
+@media screen and (min-width: 768px) {
+  .top-widgets {
+    padding: 8rem 0 6.4rem;
+  }
+}
+
+.top-widgets .container {
   height: 100%;
 }
 
-main .contents {
-  height: 59.6rem;
+.top-widgets__contents {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -94,6 +102,15 @@ main .contents {
 
 .quote-wrapper {
   text-transform: initial;
+  font-size: 1.2rem;
+  line-height: 2.2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .quote-wrapper {
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+  }
 }
 
 .quote-wrapper__random {
@@ -110,18 +127,40 @@ main .contents {
   height: 1.8rem;
   border: none;
   cursor: pointer;
-  background: url(../assets/desktop/icon-refresh.svg) no-repeat;
+  background: none;
 }
 
-.quote-wrapper .author {
+.quote-wrapper__random #refresh svg {
+  fill: white;
+  outline: none;
+  -webkit-transition: -webkit-transform 0.15s linear;
+  transition: -webkit-transform 0.15s linear;
+  transition: transform 0.15s linear;
+  transition: transform 0.15s linear, -webkit-transform 0.15s linear;
+  opacity: 0.5;
+}
+
+.quote-wrapper__random #refresh:focus {
+  outline: 2px dashed white;
+}
+
+.quote-wrapper__random #refresh:hover svg {
+  opacity: 1;
+}
+
+.quote-wrapper__random #refresh::-moz-focus-inner {
+  border: 0;
+}
+
+.quote-wrapper__random .sr-only {
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+}
+
+.author {
   font-weight: 700;
-  font-size: 1.2rem;
-  line-height: 2.2rem;
-}
-
-#quote {
-  font-size: 1.2rem;
-  line-height: 2.2rem;
 }
 
 .currently {
@@ -133,7 +172,16 @@ main .contents {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 1.6rem;
+}
+
+.currently .icon {
+  padding-right: 1.6rem;
+}
+
+@media screen and (min-width: 768px) {
+  .currently .icon {
+    height: 2.4rem;
+  }
 }
 
 .currently__greeting,
@@ -143,11 +191,20 @@ main .contents {
   letter-spacing: 0.3rem;
 }
 
+@media screen and (min-width: 768px) {
+  .currently__greeting,
+  .currently span {
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+    letter-spacing: 0.36rem;
+  }
+}
+
 .currently span {
   display: none;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 500px) {
   .currently span {
     display: block;
   }
@@ -163,19 +220,42 @@ main .contents {
   display: flex;
 }
 
+.currently .time-now {
+  font-size: 10rem;
+  line-height: 10rem;
+  letter-spacing: -2.5px;
+  padding: 1.6rem 1.6rem 1.6rem 0;
+}
+
+@media screen and (min-width: 768px) {
+  .currently .time-now {
+    font-size: 17.5rem;
+    line-height: 17.5rem;
+    letter-spacing: -4.38px;
+  }
+}
+
 .currently .standard-time {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
   font-size: 1.5rem;
   padding-top: 4.8rem;
+  font-weight: 300;
 }
 
-.currently .time-now {
-  font-size: 10rem;
-  line-height: 10rem;
-  letter-spacing: -2.5px;
-  padding: 1.6rem 1.6rem 1.6rem 0;
+@media screen and (min-width: 768px) {
+  .currently .standard-time {
+    font-size: 3.2rem;
+    line-height: 2.8rem;
+    padding-top: 6rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .currently .standard-time .period {
+    padding-bottom: 1.2rem;
+  }
 }
 
 .currently__location {
@@ -184,12 +264,20 @@ main .contents {
   letter-spacing: 3px;
 }
 
+@media screen and (min-width: 768px) {
+  .currently__location {
+    font-size: 1.8rem;
+    letter-spacing: 3.6px;
+  }
+}
+
 .currently .expand {
   border-radius: 2.8rem;
   width: 11.5rem;
   height: 4rem;
   text-transform: uppercase;
   color: rgba(0, 0, 0, 0.5);
+  background: #fff;
   font-weight: 700;
   font-size: 1.2rem;
   line-height: 1.4rem;
@@ -208,6 +296,17 @@ main .contents {
   padding: 1px 0.5rem 0 1.5rem;
 }
 
+@media screen and (min-width: 768px) {
+  .currently .expand {
+    width: 14.6rem;
+    height: 5.6rem;
+    font-size: 1.6rem;
+    line-height: 2.8rem;
+    letter-spacing: 0.5rem;
+    padding: 0.8rem 0.9rem 0.8rem 2.1rem;
+  }
+}
+
 .currently .expand .arrow {
   width: 3.2rem;
   height: 3.2rem;
@@ -215,6 +314,13 @@ main .contents {
           transform: rotate(180deg);
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+}
+
+@media screen and (min-width: 768px) {
+  .currently .expand .arrow {
+    width: 4rem;
+    height: 4rem;
+  }
 }
 
 .currently .expand .rotate {
@@ -243,9 +349,32 @@ main .contents {
   padding-bottom: 1.6rem;
 }
 
+.details h4 {
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 2px;
+  line-height: 2.8rem;
+}
+
 .details h3 {
   font-size: 2rem;
   line-height: 2.42rem;
+}
+
+.details__region {
+  grid-area: region;
+}
+
+.details__day {
+  grid-area: day;
+}
+
+.details__week-day {
+  grid-area: week-day;
+}
+
+.details__week-number {
+  grid-area: week-number;
 }
 
 .transform {

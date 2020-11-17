@@ -1,13 +1,13 @@
 const body = document.body;
-
+const main = document.querySelector('.widgets');
 
 function getTime(currentHour, currentMinutes, currently) {
-
 	const region = document.querySelector('.region');
 	const greeting = document.querySelector('.currently__greeting')
 	const icon = document.querySelector('.icon')
 	const period = document.querySelector(".period");
 	const time = document.querySelector(".time-now");
+	const details = document.querySelector('.details');
 
 	region.innerHTML = currently.abbreviation;
 	
@@ -19,32 +19,38 @@ function getTime(currentHour, currentMinutes, currently) {
 		body.classList.add('night');
 		icon.src = './assets/desktop/icon-moon.svg';
 		icon.setAttribute("alt", "moon icon");
+		details.style.color = '#fff';
+		details.style.background = 'rgba(0, 0, 0, 0.75)';
 	}
 
 	//Greeting and icon
+	let greet = '';
+
 	if (currentHour >= 5 && currentHour <= 11) {
-		greeting.innerHTML = "good morning";
+		greet = 'morning';
 	} else if (currentHour >= 12 && currentHour <= 17) {
-		greeting.innerHTML = "good afternoon";
+		greet = 'afternoon';
 	} 
 	else {
-		greeting.innerHTML = "good evening";
+		greet = 'evening';
 	}
+	
+	greeting.appendChild(document.createTextNode(greet));
 
 	//Time setup
 	if (currentHour > 12) {
 		currentHour -= 12;
-		period.innerHTML = "pm";
+		period.textContent = "pm";
 	} else {
 		currentHour;
-		period.innerHTML = "am";
+		period.textContent = "am";
 	}
 
 	if (currentMinutes < 10) {
 		currentMinutes = "0" + currentMinutes;
 	}
 
-	time.innerHTML = `${currentHour}:${currentMinutes}`;
+	time.textContent = `${currentHour}:${currentMinutes}`;
 }
 
 
@@ -62,7 +68,7 @@ function getQuote(quotesArray) {
 	let chosenQuote = quotesArray[index];
 
 	document.getElementById("quote").textContent = chosenQuote.text;
-	document.querySelector(".author").innerHTML = chosenQuote.author;
+	document.querySelector(".author").textContent = chosenQuote.author;
 }
 
 
@@ -116,7 +122,7 @@ Promise
 const expand = document.querySelector('.expand');
 
 function showDetails() {
-	body.classList.toggle('transform');
+	main.classList.toggle('transform');
 
 	if (expand.firstChild.nodeValue === "More") {
 		expand.firstChild.nodeValue = "Less"
