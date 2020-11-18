@@ -44,37 +44,29 @@
       border: none;
       cursor: pointer;
       background: none;
-      // background: url(../assets/desktop/icon-refresh.svg) no-repeat;
 
       svg {
         fill: $white;
         outline: none;
         transition: transform 0.15s linear;
         opacity: 0.5;
+
+        &:hover {
+          opacity: 1;
+        }
       }
 
       &:focus {
         outline: 2px dashed $white;
       }
 
-      &:hover {
-        svg {
-          opacity: 1;
-        }
-      }
       &::-moz-focus-inner {
         border: 0;
       }
     }
-
-    .sr-only {
-      height: 1px;
-      overflow: hidden;
-      position: absolute;
-      width: 1px;
-    }
   }
 }
+
 .author {
   font-weight: 700;
 }
@@ -200,6 +192,10 @@
       height: 3.2rem;
       transform: rotate(180deg);
       transition: all 0.5s ease;
+
+      &:hover {
+        filter: brightness(330%);
+      }
 
       @include med {
         width: 4rem;

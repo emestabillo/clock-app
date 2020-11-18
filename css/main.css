@@ -140,23 +140,16 @@ body::before {
   opacity: 0.5;
 }
 
+.quote-wrapper__random #refresh svg:hover {
+  opacity: 1;
+}
+
 .quote-wrapper__random #refresh:focus {
   outline: 2px dashed white;
 }
 
-.quote-wrapper__random #refresh:hover svg {
-  opacity: 1;
-}
-
 .quote-wrapper__random #refresh::-moz-focus-inner {
   border: 0;
-}
-
-.quote-wrapper__random .sr-only {
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  width: 1px;
 }
 
 .author {
@@ -314,6 +307,11 @@ body::before {
           transform: rotate(180deg);
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+}
+
+.currently .expand .arrow:hover {
+  -webkit-filter: brightness(330%);
+          filter: brightness(330%);
 }
 
 @media screen and (min-width: 768px) {
