@@ -1,8 +1,8 @@
-//DOM elements
 const body = document.body;
-const main = document.querySelector('.widgets');
+const widgets = document.querySelector('.widgets');
 const icon = document.querySelector('.icon')
 const details = document.querySelector('.details');
+const background = document.querySelector('.background')
 
 function getQuote(quotesArray) {
   let index = Math.floor(Math.random() * quotesArray.length);
@@ -37,11 +37,11 @@ function getTime() {
 	
 	//Bg and icon
 	if (hour >= 5 && hour <= 17 ) {
-		body.classList.add('day');
+		widgets.classList.add('day');
 		icon.src = './assets/desktop/icon-sun.svg';
 		icon.setAttribute("alt", "sun icon");
 	} else {
-		body.classList.add('night');
+		widgets.classList.add('night');
 		icon.src = './assets/desktop/icon-moon.svg';
 		icon.setAttribute("alt", "moon icon");
 		details.style.color = '#fff';
@@ -137,6 +137,7 @@ function showDetails() {
   const arrow = document.querySelector('.arrow');
   arrow.classList.toggle('rotate');
 }
+expand.addEventListener('click', showDetails);
 
 //Random quote
 document.getElementById('refresh').addEventListener('click', function(){
@@ -144,4 +145,3 @@ document.getElementById('refresh').addEventListener('click', function(){
     getQuote(quotesArray.data)
   }).catch((err) => console.error(err))
 })
-expand.addEventListener('click', showDetails);

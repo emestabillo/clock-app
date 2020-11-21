@@ -16,27 +16,11 @@ html {
 
 body {
   font-family: "Inter", sans-serif;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
   color: white;
   height: 100%;
   min-height: 100%;
   position: relative;
   overflow-y: hidden;
-}
-
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  background: #000;
-  opacity: 0.4;
 }
 
 .sr-only {
@@ -80,13 +64,36 @@ button::-moz-focus-inner {
 
 .widgets {
   height: 100%;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.widgets::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.4;
 }
 
 .top-widgets {
   padding: 3.17rem 0 4rem;
+  position: relative;
   height: 100%;
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
 }
 
 @media screen and (min-width: 768px) {
