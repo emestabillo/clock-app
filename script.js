@@ -4,20 +4,24 @@ const main = document.querySelector('.widgets');
 const icon = document.querySelector('.icon')
 const details = document.querySelector('.details');
 
-
-function getRegion(currently) {
-	document.querySelector('.region').innerHTML = currently.abbreviation;
+function getQuote(quotesArray) {
+  let index = Math.floor(Math.random() * quotesArray.length);
+	let chosenQuote = quotesArray[index];
+	
+  document.getElementById("quote").textContent = chosenQuote.text;
+	
+	const author = document.querySelector(".author")
+	if (chosenQuote.author == null) {
+		author.textContent = 'Unknown author'
+	} else {
+		author.textContent = chosenQuote.author;
+	}
 }
 
 function getTime() {
   let currentTime = new Date();
   let hour = currentTime.getHours()
   let minute = currentTime.getMinutes();
-
-  //Minute format
-  if(minute < 10){
-    minute = "0" + minute
-  }
 
   //Time of day
   let greet = '';
@@ -29,9 +33,26 @@ function getTime() {
   else {
     greet = 'evening';
   }
-  document.querySelector('.currently__greeting').innerHTML = 'good ' + greet;
+	document.querySelector('.currently__greeting').textContent = `good ${greet}`
+	
+	//Bg and icon
+	if (hour >= 5 && hour <= 17 ) {
+		body.classList.add('day');
+		icon.src = './assets/desktop/icon-sun.svg';
+		icon.setAttribute("alt", "sun icon");
+	} else {
+		body.classList.add('night');
+		icon.src = './assets/desktop/icon-moon.svg';
+		icon.setAttribute("alt", "moon icon");
+		details.style.color = '#fff';
+		details.style.background = 'rgba(0, 0, 0, 0.75)';
+	}
   
 	// Time setup
+  if(minute < 10){
+    minute = "0" + minute
+	}
+	
 	const time = document.querySelector(".time-now");
 	const period = document.querySelector(".period");
   if (hour > 12) {
@@ -47,61 +68,15 @@ function getTime() {
   setTimeout(getTime,interval)
 }
 
-
-// function getTime(currentHour, currentMinutes) {
-// 	if (currentHour >= 5 && currentHour <= 17 ) {
-// 		body.classList.add('day');
-// 		icon.src = './assets/desktop/icon-sun.svg';
-// 		icon.setAttribute("alt", "sun icon");
-// 	} else {
-// 		body.classList.add('night');
-// 		icon.src = './assets/desktop/icon-moon.svg';
-// 		icon.setAttribute("alt", "moon icon");
-// 		details.style.color = '#fff';
-// 		details.style.background = 'rgba(0, 0, 0, 0.75)';
-// 	}
-// }
-
-
-
-// 	function getPeriodOfDay(currentHour) {
-	
-// //Greeting and icon
-// 	let greet = '';
-// 	if (currentHour >= 5 && currentHour <= 11) {
-// 		greet = 'morning';
-// 	} else if (currentHour >= 12 && currentHour <= 17) {
-// 		greet = 'afternoon';
-// 	} 
-// 	else {
-// 		greet = 'evening';
-// 	}
-// 	greeting.appendChild(document.createTextNode(greet));
-
-	
-// 	}
+function getRegion(currently) {
+	document.querySelector('.region').textContent = currently.abbreviation;
+}
 
 function getLocation(ipLocation) {
   const zone = document.querySelector('.country');
   const regionName = ipLocation.region_name;
   const countryCode = ipLocation.country_code;
-  zone.innerHTML = `in ${regionName}, ${countryCode}`;
-}
-
-
-function getQuote(quotesArray) {
-  let index = Math.floor(Math.random() * quotesArray.length);
-	let chosenQuote = quotesArray[index];
-	
-  document.getElementById("quote").innerHTML = chosenQuote.text;
-	
-	const author = document.querySelector(".author")
-	if (chosenQuote.author == null) {
-		author.innerHTML = 'Unknown author'
-	} else {
-		author.innerHTML = chosenQuote.author;
-	}
-
+  zone.textContent = `in ${regionName}, ${countryCode}`;
 }
 
 
@@ -111,10 +86,10 @@ function getDetails(currently) {
   const weekDay = document.getElementById('week-day');
   const weekNumber = document.getElementById('week-number');
 
-  timeZone.innerHTML = currently.timezone;
-  dayOfYear.innerHTML = currently.day_of_year;
-  weekDay.innerHTML = currently.day_of_week;
-  weekNumber.innerHTML = currently.week_number;
+  timeZone.textContent = currently.timezone;
+  dayOfYear.textContent = currently.day_of_year;
+  weekDay.textContent = currently.day_of_week;
+  weekNumber.textContent = currently.week_number;
 }
 
 
@@ -133,13 +108,12 @@ Promise
 
       //Time now
       let currently = time.data;
-      // console.log(currently);
       // let currentTime = new Date(time.data.datetime);
       
       getRegion(currently)
       getDetails(currently);
 
-      //Region
+      //Location
       const ipLocation = location.data;
       getLocation(ipLocation);
     })
