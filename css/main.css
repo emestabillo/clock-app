@@ -347,7 +347,7 @@ button::-moz-focus-inner {
           backdrop-filter: blur(40.7742px);
   padding: 4.8rem 0 3.2rem;
   color: #303030;
-  position: relative;
+  position: absolute;
   -webkit-transition: -webkit-transform 0.5s ease;
   transition: -webkit-transform 0.5s ease;
   transition: transform 0.5s ease;
