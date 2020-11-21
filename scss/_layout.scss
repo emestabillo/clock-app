@@ -58,13 +58,13 @@
     }
   }
 
-  &:focus {
-    outline: 2px dashed $white;
-  }
+  // &:focus {
+  //   outline: 2px dashed $white;
+  // }
 
-  &::-moz-focus-inner {
-    border: 0;
-  }
+  // &::-moz-focus-inner {
+  //   border: 0;
+  // }
 }
 
 .author {

@@ -65,6 +65,19 @@ body::before {
   }
 }
 
+button {
+  border: none;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: 2px dashed white;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
 .widgets {
   height: 100%;
   -webkit-transition: all 0.5s ease;
@@ -142,14 +155,6 @@ body::before {
 
 #refresh svg:hover {
   opacity: 1;
-}
-
-#refresh:focus {
-  outline: 2px dashed white;
-}
-
-#refresh::-moz-focus-inner {
-  border: 0;
 }
 
 .author {

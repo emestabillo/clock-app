@@ -1,52 +1,55 @@
 //DOM elements
 const body = document.body;
 const main = document.querySelector('.widgets');
-const region = document.querySelector('.region');
+// const region = document.querySelector('.region');
 const icon = document.querySelector('.icon')
-const time = document.querySelector(".time-now");
-const greeting = document.querySelector('.currently__greeting')
-const period = document.querySelector(".period");
+// const time = document.querySelector(".time-now");
+// const greeting = document.querySelector('.currently__greeting')
+// const period = document.querySelector(".period");
 const details = document.querySelector('.details');
 
 
 function getRegion(currently) {
-	region.innerHTML = currently.abbreviation;
+	document.querySelector('.region').innerHTML = currently.abbreviation;
 }
 
 function getTime() {
-	let currentTime = new Date();
-	let hour = currentTime.getHours()
-	let minute = currentTime.getMinutes();
+  let currentTime = new Date();
+  let hour = currentTime.getHours()
+  let minute = currentTime.getMinutes();
 
-	//Minute format
-	if(minute < 10){
-		minute = "0" + minute
-	}
+  //Minute format
+  if(minute < 10){
+    minute = "0" + minute
+  }
 
-	//Time of day
-	// let greet = '';
-	// if (hour >= 5 && hour <= 11) {
-	// 	greet = 'morning';
-	// } else if (hour >= 12 && hour <= 17) {
-	// 	greet = 'afternoon';
-	// } 
-	// else {
-	// 	greet = 'evening';
-	// }
-	// greeting.appendChild(document.createTextNode(greet));
-	
+  //Time of day
+  let greet = '';
+  if (hour >= 5 && hour <= 11) {
+    greet = 'morning';
+  } else if (hour >= 12 && hour <= 17) {
+    greet = 'afternoon';
+  } 
+  else {
+    greet = 'evening';
+  }
+  document.querySelector('.currently__greeting').innerHTML = 'good' + greet;
+  
 	// Time setup
-	if (hour > 12) {
-		hour -= 12;
-		period.textContent = "pm";
-	} else {
-		period.textContent = "am";
+	const time = document.querySelector(".time-now");
+	const period = document.querySelector(".period");
+  if (hour > 12) {
+    hour -= 12;
+    period.textContent = "pm";
+  } else {
+    period.textContent = "am";
 	}
 	time.textContent = `${hour}:${minute}`;
+	
+	//Update time
 	let interval = (60 - (new Date()).getSeconds()) * 1000 + 5;
-	setTimeout(getTime,interval)
+  setTimeout(getTime,interval)
 }
-
 
 
 // function getTime(currentHour, currentMinutes) {
@@ -83,98 +86,85 @@ function getTime() {
 // 	}
 
 function getLocation(ipLocation) {
-	const zone = document.querySelector('.country');
-	const regionName = ipLocation.region_name;
-	const countryCode = ipLocation.country_code;
-	zone.innerHTML = `in ${regionName}, ${countryCode}`;
+  const zone = document.querySelector('.country');
+  const regionName = ipLocation.region_name;
+  const countryCode = ipLocation.country_code;
+  zone.innerHTML = `in ${regionName}, ${countryCode}`;
 }
 
 
 function getQuote(quotesArray) {
-	let index = Math.floor(Math.random() * quotesArray.length);
-	let chosenQuote = quotesArray[index];
-
-	document.getElementById("quote").textContent = chosenQuote.text;
-	document.querySelector(".author").textContent = chosenQuote.author;
+  let index = Math.floor(Math.random() * quotesArray.length);
+  let chosenQuote = quotesArray[index];
+  console.log(chosenQuote)
+  document.getElementById("quote").textContent = chosenQuote.text;
+  document.querySelector(".author").textContent = chosenQuote.author;
 }
 
 
 function getDetails(currently) {
-	const timeZone = document.getElementById('timezone');
-	const dayOfYear = document.getElementById('year-day');
-	const weekDay = document.getElementById('week-day');
-	const weekNumber = document.getElementById('week-number');
+  const timeZone = document.getElementById('timezone');
+  const dayOfYear = document.getElementById('year-day');
+  const weekDay = document.getElementById('week-day');
+  const weekNumber = document.getElementById('week-number');
 
-	timeZone.innerHTML = currently.timezone;
-	dayOfYear.innerHTML = currently.day_of_year;
-	weekDay.innerHTML = currently.day_of_week;
-	weekNumber.innerHTML = currently.week_number;
+  timeZone.innerHTML = currently.timezone;
+  dayOfYear.innerHTML = currently.day_of_year;
+  weekDay.innerHTML = currently.day_of_week;
+  weekNumber.innerHTML = currently.week_number;
 }
 
 
 Promise
-	.all([
-		axios.get("https://type.fit/api/quotes"),
-		// axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://worldtimeapi.org/api/ip`)
-		axios.get('https://worldtimeapi.org/api/ip'), //time based on ip address and info on expanded state
-		axios.get("https://freegeoip.app/json/") //city and country under time
-		
-	]).catch(() => null)
-	.then(
-		axios.spread((quotes, time, location) => {
-			// Display quotes
-			let quotesArray = quotes.data;
-			getQuote(quotesArray);
+  .all([
+    axios.get("https://type.fit/api/quotes"),
+    // axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://worldtimeapi.org/api/ip`)
+    axios.get('https://worldtimeapi.org/api/ip'), //time based on ip address and info on expanded state
+    axios.get("https://freegeoip.app/json/") //city and country under time
+  ]).catch(() => null)
+  .then(
+    axios.spread((quotes, time, location) => {
+      // Display quotes
+      let quotesArray = quotes.data;
+      getQuote(quotesArray);
 
-			//Get random quote
-			document.getElementById('refresh').addEventListener('click', function(){
-				axios.get('https://type.fit/api/quotes').then((quotesArray) => {
-					getQuote(quotesArray.data)
-				}).catch(function (error) {
-    			console.log(error);
-		})
-	})
+      //Time now
+      let currently = time.data;
+      // console.log(currently);
+      // let currentTime = new Date(time.data.datetime);
+      
+      getRegion(currently)
+      getDetails(currently);
 
-			//Time now
-			let currently = time.data;
-			// console.log(currently);
-			let currentTime = new Date(time.data.datetime);
-			let currentHour = currentTime.getHours();
-			let currentMinutes = currentTime.getMinutes();
-			let currentSeconds = currentTime.getSeconds();
-			getTime();
-			getRegion(currently)
-			getDetails(currently);
+      //Region
+      const ipLocation = location.data;
+      getLocation(ipLocation);
+    })
+  )
+  .catch((err) => console.error(err));
 
-			//Region
-			const ipLocation = location.data;
-			getLocation(ipLocation);
-		})
-	)
-	.catch((err) => console.error(err));
+getTime();
 
-
-//Expand button
+//Event listeners
+//Details button
 const expand = document.querySelector('.expand');
-
 function showDetails() {
-	main.classList.toggle('transform');
+  main.classList.toggle('transform');
 
-	if (expand.firstChild.nodeValue === "More") {
-		expand.firstChild.nodeValue = "Less"
-	} else {
-		expand.firstChild.nodeValue = "More"
-	}
+  if (expand.firstChild.nodeValue === "More") {
+    expand.firstChild.nodeValue = "Less"
+  } else {
+    expand.firstChild.nodeValue = "More"
+  }
 
-	const arrow = document.querySelector('.arrow');
-	arrow.classList.toggle('rotate');
+  const arrow = document.querySelector('.arrow');
+  arrow.classList.toggle('rotate');
 }
 
+//Random quote
+document.getElementById('refresh').addEventListener('click', function(){
+  axios.get('https://type.fit/api/quotes').then((quotesArray) => {
+    getQuote(quotesArray.data)
+  }).catch((err) => console.error(err))
+})
 expand.addEventListener('click', showDetails);
-
-// function init()
-// {
-//     var interval = (60 - (new Date()).getSeconds()) * 1000 + 5;
-//     getTime();
-//     setTimeout(init,interval);
-// }
