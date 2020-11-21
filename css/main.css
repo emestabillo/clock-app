@@ -348,10 +348,11 @@ button::-moz-focus-inner {
   padding: 4.8rem 0 3.2rem;
   color: #303030;
   position: absolute;
-  -webkit-transition: -webkit-transform 0.5s ease;
-  transition: -webkit-transform 0.5s ease;
-  transition: transform 0.5s ease;
-  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  z-index: -1;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  bottom: -25.6rem;
+  width: 100%;
 }
 
 .details .info {
@@ -398,6 +399,10 @@ button::-moz-focus-inner {
 .transform {
   -webkit-transform: translate3d(0, -25.6rem, 0);
           transform: translate3d(0, -25.6rem, 0);
+}
+
+.show-details {
+  z-index: unset;
 }
 
 .day {

@@ -129,7 +129,8 @@ const expand = document.querySelector('.expand');
 function showDetails() {
   topWidgets.classList.toggle('transform');
   details.classList.toggle('transform');
-
+  details.classList.toggle('show-details');
+  
   if (expand.firstChild.nodeValue === "More") {
     expand.firstChild.nodeValue = "Less"
   } else {
