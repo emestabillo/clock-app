@@ -1,11 +1,7 @@
 //DOM elements
 const body = document.body;
 const main = document.querySelector('.widgets');
-// const region = document.querySelector('.region');
 const icon = document.querySelector('.icon')
-// const time = document.querySelector(".time-now");
-// const greeting = document.querySelector('.currently__greeting')
-// const period = document.querySelector(".period");
 const details = document.querySelector('.details');
 
 
@@ -95,10 +91,17 @@ function getLocation(ipLocation) {
 
 function getQuote(quotesArray) {
   let index = Math.floor(Math.random() * quotesArray.length);
-  let chosenQuote = quotesArray[index];
-  console.log(chosenQuote)
-  document.getElementById("quote").textContent = chosenQuote.text;
-  document.querySelector(".author").textContent = chosenQuote.author;
+	let chosenQuote = quotesArray[index];
+	
+  document.getElementById("quote").innerHTML = chosenQuote.text;
+	
+	const author = document.querySelector(".author")
+	if (chosenQuote.author == null) {
+		author.innerHTML = 'Unknown author'
+	} else {
+		author.innerHTML = chosenQuote.author;
+	}
+
 }
 
 
