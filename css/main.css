@@ -123,14 +123,14 @@ body::before {
   padding-bottom: 0.8rem;
 }
 
-.quote-wrapper__random #refresh {
+#refresh {
   height: 1.8rem;
   border: none;
   cursor: pointer;
   background: none;
 }
 
-.quote-wrapper__random #refresh svg {
+#refresh svg {
   fill: white;
   outline: none;
   -webkit-transition: -webkit-transform 0.15s linear;
@@ -140,15 +140,15 @@ body::before {
   opacity: 0.5;
 }
 
-.quote-wrapper__random #refresh svg:hover {
+#refresh svg:hover {
   opacity: 1;
 }
 
-.quote-wrapper__random #refresh:focus {
+#refresh:focus {
   outline: 2px dashed white;
 }
 
-.quote-wrapper__random #refresh::-moz-focus-inner {
+#refresh::-moz-focus-inner {
   border: 0;
 }
 
@@ -305,8 +305,10 @@ body::before {
   height: 3.2rem;
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  -webkit-transition: -webkit-transform 0.5s, -webkit-filter 0.2s;
+  transition: -webkit-transform 0.5s, -webkit-filter 0.2s;
+  transition: transform 0.5s, filter 0.2s;
+  transition: transform 0.5s, filter 0.2s, -webkit-transform 0.5s, -webkit-filter 0.2s;
 }
 
 .currently .expand .arrow:hover {

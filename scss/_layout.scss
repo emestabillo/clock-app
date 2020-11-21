@@ -38,32 +38,32 @@
     grid-template-columns: 1fr 1.67rem;
     column-gap: 1.6rem;
     padding-bottom: 0.8rem;
+  }
+}
 
-    #refresh {
-      height: 1.8rem;
-      border: none;
-      cursor: pointer;
-      background: none;
+#refresh {
+  height: 1.8rem;
+  border: none;
+  cursor: pointer;
+  background: none;
 
-      svg {
-        fill: $white;
-        outline: none;
-        transition: transform 0.15s linear;
-        opacity: 0.5;
+  svg {
+    fill: $white;
+    outline: none;
+    transition: transform 0.15s linear;
+    opacity: 0.5;
 
-        &:hover {
-          opacity: 1;
-        }
-      }
-
-      &:focus {
-        outline: 2px dashed $white;
-      }
-
-      &::-moz-focus-inner {
-        border: 0;
-      }
+    &:hover {
+      opacity: 1;
     }
+  }
+
+  &:focus {
+    outline: 2px dashed $white;
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
   }
 }
 
@@ -191,7 +191,7 @@
       width: 3.2rem;
       height: 3.2rem;
       transform: rotate(180deg);
-      transition: all 0.5s ease;
+      transition: transform 0.5s, filter 0.2s;
 
       &:hover {
         filter: brightness(330%);
