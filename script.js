@@ -29,7 +29,7 @@ function getTime() {
   else {
     greet = 'evening';
   }
-  document.querySelector('.currently__greeting').innerHTML = 'good' + greet;
+  document.querySelector('.currently__greeting').innerHTML = 'good ' + greet;
   
 	// Time setup
 	const time = document.querySelector(".time-now");
