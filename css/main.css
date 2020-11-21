@@ -73,6 +73,7 @@ button::-moz-focus-inner {
   bottom: 0;
   right: 0;
   left: 0;
+  z-index: 0;
 }
 
 .widgets::before {
@@ -346,6 +347,11 @@ button::-moz-focus-inner {
           backdrop-filter: blur(40.7742px);
   padding: 4.8rem 0 3.2rem;
   color: #303030;
+  position: relative;
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
 }
 
 .details .info {

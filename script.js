@@ -1,5 +1,6 @@
 const body = document.body;
 const widgets = document.querySelector('.widgets');
+const topWidgets = document.querySelector('.top-widgets');
 const icon = document.querySelector('.icon')
 const details = document.querySelector('.details');
 const background = document.querySelector('.background')
@@ -126,7 +127,8 @@ getTime();
 //Details button
 const expand = document.querySelector('.expand');
 function showDetails() {
-  main.classList.toggle('transform');
+  topWidgets.classList.toggle('transform');
+  details.classList.toggle('transform');
 
   if (expand.firstChild.nodeValue === "More") {
     expand.firstChild.nodeValue = "Less"
