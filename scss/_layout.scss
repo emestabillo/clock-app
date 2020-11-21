@@ -38,43 +38,27 @@
     grid-template-columns: 1fr 1.67rem;
     column-gap: 1.6rem;
     padding-bottom: 0.8rem;
+  }
+}
 
-    #refresh {
-      height: 1.8rem;
-      border: none;
-      cursor: pointer;
-      background: none;
-      // background: url(../assets/desktop/icon-refresh.svg) no-repeat;
+#refresh {
+  height: 1.8rem;
+  border: none;
+  cursor: pointer;
+  background: none;
 
-      svg {
-        fill: $white;
-        outline: none;
-        transition: transform 0.15s linear;
-        opacity: 0.5;
-      }
+  svg {
+    fill: $white;
+    outline: none;
+    transition: transform 0.15s linear;
+    opacity: 0.5;
 
-      &:focus {
-        outline: 2px dashed $white;
-      }
-
-      &:hover {
-        svg {
-          opacity: 1;
-        }
-      }
-      &::-moz-focus-inner {
-        border: 0;
-      }
-    }
-
-    .sr-only {
-      height: 1px;
-      overflow: hidden;
-      position: absolute;
-      width: 1px;
+    &:hover {
+      opacity: 1;
     }
   }
 }
+
 .author {
   font-weight: 700;
 }
@@ -140,7 +124,7 @@
   .standard-time {
     align-self: center;
     font-size: 1.5rem;
-    padding-top: 4.8rem;
+    padding-top: 3.7rem;
     font-weight: 300;
 
     @include med {
@@ -199,7 +183,11 @@
       width: 3.2rem;
       height: 3.2rem;
       transform: rotate(180deg);
-      transition: all 0.5s ease;
+      transition: transform 0.5s, filter 0.2s;
+
+      &:hover {
+        filter: brightness(330%);
+      }
 
       @include med {
         width: 4rem;
@@ -281,5 +269,5 @@
 }
 
 .transform {
-  transform: translateY(-25.6rem);
+  transform: translate3d(0, -25.6rem, 0);
 }

@@ -93,3 +93,16 @@ body {
 //   letter-spacing: 2px;
 //   line-height: 2.8rem;
 // }
+
+button {
+  border: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: 2px dashed $white;
+  }
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+}

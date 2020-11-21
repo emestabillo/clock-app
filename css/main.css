@@ -65,6 +65,19 @@ body::before {
   }
 }
 
+button {
+  border: none;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: 2px dashed white;
+}
+
+button::-moz-focus-inner {
+  border: 0;
+}
+
 .widgets {
   height: 100%;
   -webkit-transition: all 0.5s ease;
@@ -123,14 +136,14 @@ body::before {
   padding-bottom: 0.8rem;
 }
 
-.quote-wrapper__random #refresh {
+#refresh {
   height: 1.8rem;
   border: none;
   cursor: pointer;
   background: none;
 }
 
-.quote-wrapper__random #refresh svg {
+#refresh svg {
   fill: white;
   outline: none;
   -webkit-transition: -webkit-transform 0.15s linear;
@@ -140,23 +153,8 @@ body::before {
   opacity: 0.5;
 }
 
-.quote-wrapper__random #refresh:focus {
-  outline: 2px dashed white;
-}
-
-.quote-wrapper__random #refresh:hover svg {
+#refresh svg:hover {
   opacity: 1;
-}
-
-.quote-wrapper__random #refresh::-moz-focus-inner {
-  border: 0;
-}
-
-.quote-wrapper__random .sr-only {
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  width: 1px;
 }
 
 .author {
@@ -240,7 +238,7 @@ body::before {
       -ms-grid-row-align: center;
       align-self: center;
   font-size: 1.5rem;
-  padding-top: 4.8rem;
+  padding-top: 3.7rem;
   font-weight: 300;
 }
 
@@ -312,8 +310,15 @@ body::before {
   height: 3.2rem;
   -webkit-transform: rotate(180deg);
           transform: rotate(180deg);
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  -webkit-transition: -webkit-transform 0.5s, -webkit-filter 0.2s;
+  transition: -webkit-transform 0.5s, -webkit-filter 0.2s;
+  transition: transform 0.5s, filter 0.2s;
+  transition: transform 0.5s, filter 0.2s, -webkit-transform 0.5s, -webkit-filter 0.2s;
+}
+
+.currently .expand .arrow:hover {
+  -webkit-filter: brightness(330%);
+          filter: brightness(330%);
 }
 
 @media screen and (min-width: 768px) {
@@ -378,8 +383,8 @@ body::before {
 }
 
 .transform {
-  -webkit-transform: translateY(-25.6rem);
-          transform: translateY(-25.6rem);
+  -webkit-transform: translate3d(0, -25.6rem, 0);
+          transform: translate3d(0, -25.6rem, 0);
 }
 
 .day {
