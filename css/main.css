@@ -143,6 +143,8 @@ button::-moz-focus-inner {
 .quote-wrapper .author {
   font-weight: 700;
   padding-top: 0.8rem;
+  font-size: 1.2rem;
+  line-height: 2.2rem;
 }
 
 #refresh {
