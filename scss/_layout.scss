@@ -1,4 +1,30 @@
-.widgets {
+// .widgets {
+//   height: 100%;
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   background-position: center;
+//   background-attachment: fixed;
+//   position: absolute;
+//   top: 0;
+//   bottom: 0;
+//   right: 0;
+//   left: 0;
+//   z-index: 0;
+
+//   &::before {
+//     content: "";
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     // z-index: -1;
+//     background: #000;
+//     opacity: 0.4;
+//   }
+// }
+
+.background {
   height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -24,11 +50,9 @@
   }
 }
 
-// .widgets {
-//   // height: 100%;
-//   // position: relative;
-//   // transition: transform 0.5s ease;
-// }
+.widgets {
+  height: 100%;
+}
 
 .top-widgets {
   padding: 3.17rem 0 4rem;

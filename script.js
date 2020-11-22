@@ -38,11 +38,11 @@ function getTime() {
 	
 	//Bg and icon
 	if (hour >= 5 && hour <= 17 ) {
-		widgets.classList.add('day');
+		background.classList.add('day');
 		icon.src = './assets/desktop/icon-sun.svg';
 		icon.setAttribute("alt", "sun icon");
 	} else {
-		widgets.classList.add('night');
+		background.classList.add('night');
 		icon.src = './assets/desktop/icon-moon.svg';
 		icon.setAttribute("alt", "moon icon");
 		details.style.color = '#fff';

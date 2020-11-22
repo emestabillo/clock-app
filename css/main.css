@@ -62,7 +62,7 @@ button::-moz-focus-inner {
   border: 0;
 }
 
-.widgets {
+.background {
   height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
@@ -76,7 +76,7 @@ button::-moz-focus-inner {
   z-index: 0;
 }
 
-.widgets::before {
+.background::before {
   content: "";
   position: absolute;
   top: 0;
@@ -85,6 +85,10 @@ button::-moz-focus-inner {
   left: 0;
   background: #000;
   opacity: 0.4;
+}
+
+.widgets {
+  height: 100%;
 }
 
 .top-widgets {
