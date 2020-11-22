@@ -16,27 +16,11 @@ html {
 
 body {
   font-family: "Inter", sans-serif;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
   color: white;
   height: 100%;
   min-height: 100%;
   position: relative;
-  overflow-y: hidden;
-}
-
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
-  background: #000;
-  opacity: 0.4;
+  overflow: hidden;
 }
 
 .sr-only {
@@ -53,18 +37,6 @@ body::before {
   white-space: nowrap !important;
 }
 
-.container {
-  max-width: 111rem;
-  padding: 0 2.6rem;
-  margin: 0 auto;
-}
-
-@media screen and (min-width: 768px) {
-  .container {
-    padding: 0 13.1rem 0 6.4rem;
-  }
-}
-
 button {
   border: none;
   cursor: pointer;
@@ -78,15 +50,51 @@ button::-moz-focus-inner {
   border: 0;
 }
 
-.widgets {
+.container {
+  max-width: 111rem;
+  padding: 0 2.6rem;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    padding: 0 13.1rem 0 6.4rem;
+  }
+}
+
+.background {
   height: 100%;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 0;
+}
+
+.background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.4;
 }
 
 .top-widgets {
   padding: 3.17rem 0 4rem;
+  position: relative;
   height: 100%;
+  -webkit-transition: -webkit-transform 0.5s ease;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
 }
 
 @media screen and (min-width: 768px) {
@@ -117,6 +125,12 @@ button::-moz-focus-inner {
   text-transform: initial;
   font-size: 1.2rem;
   line-height: 2.2rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1.67rem;
+      grid-template-columns: 1fr 1.67rem;
+  -webkit-column-gap: 1.6rem;
+          column-gap: 1.6rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -126,14 +140,11 @@ button::-moz-focus-inner {
   }
 }
 
-.quote-wrapper__random {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1.67rem;
-      grid-template-columns: 1fr 1.67rem;
-  -webkit-column-gap: 1.6rem;
-          column-gap: 1.6rem;
-  padding-bottom: 0.8rem;
+.quote-wrapper .author {
+  font-weight: 700;
+  padding-top: 0.8rem;
+  font-size: 1.2rem;
+  line-height: 2.2rem;
 }
 
 #refresh {
@@ -157,13 +168,8 @@ button::-moz-focus-inner {
   opacity: 1;
 }
 
-.author {
-  font-weight: 700;
-}
-
 .currently {
   text-transform: uppercase;
-  margin-bottom: 2rem;
 }
 
 .currently header {
@@ -339,6 +345,11 @@ button::-moz-focus-inner {
           backdrop-filter: blur(40.7742px);
   padding: 4.8rem 0 3.2rem;
   color: #303030;
+  position: absolute;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  bottom: -25.6rem;
+  width: 100%;
 }
 
 .details .info {

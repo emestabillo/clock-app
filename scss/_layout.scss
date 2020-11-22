@@ -1,11 +1,44 @@
-.widgets {
+.container {
+  max-width: 111rem;
+  // width: 90%;
+  padding: 0 2.6rem;
+  margin: 0 auto;
+
+  @include med {
+    padding: 0 13.1rem 0 6.4rem;
+  }
+}
+
+.background {
   height: 100%;
-  transition: all 0.5s ease;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.4;
+  }
 }
 
 .top-widgets {
   padding: 3.17rem 0 4rem;
+  position: relative;
   height: 100%;
+  transition: transform 0.5s ease;
 
   @include med {
     padding: 8rem 0 6.4rem;
@@ -28,16 +61,27 @@
   font-size: 1.2rem;
   line-height: 2.2rem;
 
+  display: grid;
+  grid-template-columns: 1fr 1.67rem;
+  column-gap: 1.6rem;
+
   @include med {
     font-size: 1.8rem;
     line-height: 2.8rem;
   }
 
   &__random {
-    display: grid;
-    grid-template-columns: 1fr 1.67rem;
-    column-gap: 1.6rem;
-    padding-bottom: 0.8rem;
+    // display: grid;
+    // grid-template-columns: 1fr 1.67rem;
+    // column-gap: 1.6rem;
+    // padding-bottom: 0.8rem;
+  }
+
+  .author {
+    font-weight: 700;
+    padding-top: 0.8rem;
+    font-size: 1.2rem;
+    line-height: 2.2rem;
   }
 }
 
@@ -59,13 +103,8 @@
   }
 }
 
-.author {
-  font-weight: 700;
-}
-
 .currently {
   text-transform: uppercase;
-  margin-bottom: 2rem;
 
   header {
     display: flex;
@@ -206,6 +245,10 @@
   backdrop-filter: blur(40.7742px);
   padding: 4.8rem 0 3.2rem;
   color: $dark-gray;
+  position: absolute;
+  transition: all 0.5s ease;
+  bottom: -25.6rem;
+  width: 100%;
 
   // @include med {
   //   padding: 11.9rem 16.6rem 11.9rem 6.4rem;
