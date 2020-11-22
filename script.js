@@ -1,17 +1,17 @@
-const body = document.body;
-const widgets = document.querySelector('.widgets');
-const topWidgets = document.querySelector('.top-widgets');
+//DOM elements
+const background = document.querySelector('.background')
+const author = document.querySelector(".author")
 const icon = document.querySelector('.icon')
 const details = document.querySelector('.details');
-const background = document.querySelector('.background')
+const period = document.querySelector(".period");
+const expand = document.querySelector('.expand');
+
 
 function getQuote(quotesArray) {
-  let index = Math.floor(Math.random() * quotesArray.length);
-	let chosenQuote = quotesArray[index];
-	
+  const index = Math.floor(Math.random() * quotesArray.length);
+	const chosenQuote = quotesArray[index];
   document.getElementById("quote").textContent = chosenQuote.text;
 	
-	const author = document.querySelector(".author")
 	if (chosenQuote.author == null) {
 		author.textContent = 'Unknown author'
 	} else {
@@ -54,15 +54,13 @@ function getTime() {
     minute = "0" + minute
 	}
 	
-	const time = document.querySelector(".time-now");
-	const period = document.querySelector(".period");
   if (hour > 12) {
     hour -= 12;
     period.textContent = "pm";
   } else {
     period.textContent = "am";
 	}
-	time.textContent = `${hour}:${minute}`;
+	document.querySelector(".time-now").textContent = `${hour}:${minute}`;
 	
 	//Update time
 	let interval = (60 - (new Date()).getSeconds()) * 1000 + 5;
@@ -74,43 +72,32 @@ function getRegion(currently) {
 }
 
 function getLocation(ipLocation) {
-  const zone = document.querySelector('.country');
   const regionName = ipLocation.region_name;
   const countryCode = ipLocation.country_code;
-  zone.textContent = `in ${regionName}, ${countryCode}`;
+  document.querySelector('.currently__location').textContent = `in ${regionName}, ${countryCode}`;
 }
-
 
 function getDetails(currently) {
-  const timeZone = document.getElementById('timezone');
-  const dayOfYear = document.getElementById('year-day');
-  const weekDay = document.getElementById('week-day');
-  const weekNumber = document.getElementById('week-number');
-
-  timeZone.textContent = currently.timezone;
-  dayOfYear.textContent = currently.day_of_year;
-  weekDay.textContent = currently.day_of_week;
-  weekNumber.textContent = currently.week_number;
+  document.getElementById('timezone').textContent = currently.timezone;
+  document.getElementById('year-day').textContent = currently.day_of_year;
+  document.getElementById('week-day').textContent = currently.day_of_week;
+  document.getElementById('week-number').textContent = currently.week_number;
 }
-
 
 Promise
   .all([
     axios.get("https://type.fit/api/quotes"),
-    // axios.get(`${'https://cors-anywhere.herokuapp.com/'}https://worldtimeapi.org/api/ip`)
-    axios.get('https://worldtimeapi.org/api/ip'), //time based on ip address and info on expanded state
-    axios.get("https://freegeoip.app/json/") //city and country under time
+    axios.get('https://worldtimeapi.org/api/ip'),
+    axios.get("https://freegeoip.app/json/")
   ]).catch(() => null)
   .then(
     axios.spread((quotes, time, location) => {
       // Display quotes
-      let quotesArray = quotes.data;
+      const quotesArray = quotes.data;
       getQuote(quotesArray);
 
-      //Time now
-      let currently = time.data;
-      // let currentTime = new Date(time.data.datetime);
-      
+      //Time now - user location
+      const currently = time.data;      
       getRegion(currently)
       getDetails(currently);
 
@@ -124,12 +111,9 @@ Promise
 getTime();
 
 //Event listeners
-//Details button
-const expand = document.querySelector('.expand');
 function showDetails() {
-  topWidgets.classList.toggle('transform');
+  document.querySelector('.top-widgets').classList.toggle('transform');
   details.classList.toggle('transform');
-  details.classList.toggle('show-details');
   
   if (expand.firstChild.nodeValue === "More") {
     expand.firstChild.nodeValue = "Less"
