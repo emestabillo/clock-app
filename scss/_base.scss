@@ -1,7 +1,7 @@
-//COLORS
 $black: hsl(0, 0%, 0%);
 $white: hsl(0, 0%, 100%);
 $dark-gray: hsl(0, 0%, 19%);
+$width: 111rem;
 
 //MEDIA QUERIES
 @mixin med {
@@ -19,6 +19,18 @@ $dark-gray: hsl(0, 0%, 19%);
 @mixin xl {
   @media screen and (min-width: 1200px) {
     @content;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(30deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
 

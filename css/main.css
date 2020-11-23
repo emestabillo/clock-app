@@ -1,3 +1,33 @@
+@-webkit-keyframes rotation {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(30deg);
+            transform: rotate(30deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
+@keyframes rotation {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(30deg);
+            transform: rotate(30deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -50,18 +80,6 @@ button::-moz-focus-inner {
   border: 0;
 }
 
-.container {
-  max-width: 111rem;
-  padding: 0 2.6rem;
-  margin: 0 auto;
-}
-
-@media screen and (min-width: 768px) {
-  .container {
-    padding: 0 13.1rem 0 6.4rem;
-  }
-}
-
 .background {
   height: 100%;
   background-size: cover;
@@ -73,7 +91,7 @@ button::-moz-focus-inner {
   bottom: 0;
   right: 0;
   left: 0;
-  z-index: 0;
+  z-index: -1;
 }
 
 .background::before {
@@ -83,8 +101,8 @@ button::-moz-focus-inner {
   right: 0;
   bottom: 0;
   left: 0;
-  background: #000;
-  opacity: 0.4;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.4);
 }
 
 .top-widgets {
@@ -95,16 +113,33 @@ button::-moz-focus-inner {
   transition: -webkit-transform 0.5s ease;
   transition: transform 0.5s ease;
   transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+  padding: 3.17rem 2.6rem 4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 111rem;
 }
 
 @media screen and (min-width: 768px) {
   .top-widgets {
-    padding: 8rem 0 6.4rem;
+    padding: 8rem 13.1rem 6.4rem 6.4rem;
   }
 }
 
-.top-widgets .container {
-  height: 100%;
+@media screen and (min-width: 992px) {
+  .top-widgets {
+    padding-top: 5.6rem;
+    padding-left: 16.5rem;
+    padding-bottom: 9.8rem;
+    padding-right: 0;
+  }
 }
 
 .top-widgets__contents {
@@ -118,13 +153,13 @@ button::-moz-focus-inner {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  height: 100%;
 }
 
 .quote-wrapper {
   text-transform: initial;
   font-size: 1.2rem;
   line-height: 2.2rem;
+  max-width: 57.3rem;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1.67rem;
@@ -154,6 +189,12 @@ button::-moz-focus-inner {
   }
 }
 
+@media screen and (min-width: 992px) {
+  .quote-wrapper .author {
+    padding: 1.3rem 0 9.8rem;
+  }
+}
+
 #refresh {
   height: 1.8rem;
   border: none;
@@ -164,6 +205,12 @@ button::-moz-focus-inner {
 @media screen and (min-width: 768px) {
   #refresh {
     margin-top: 0.3rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  #refresh {
+    margin-top: 1rem;
   }
 }
 
@@ -185,6 +232,16 @@ button::-moz-focus-inner {
   text-transform: uppercase;
 }
 
+@media screen and (min-width: 992px) {
+  .currently {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-column-gap: 40rem;
+            column-gap: 40rem;
+  }
+}
+
 .currently header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -193,11 +250,13 @@ button::-moz-focus-inner {
 
 .currently .icon {
   padding-right: 1.6rem;
+  -webkit-animation: rotation 8s infinite linear;
+          animation: rotation 8s infinite linear;
 }
 
 @media screen and (min-width: 768px) {
   .currently .icon {
-    height: 2.36rem;
+    height: 2.4rem;
   }
 }
 
@@ -217,6 +276,15 @@ button::-moz-focus-inner {
   }
 }
 
+@media screen and (min-width: 992px) {
+  .currently__greeting,
+  .currently span {
+    font-size: 2rem;
+    line-height: 2.8rem;
+    letter-spacing: 0.4rem;
+  }
+}
+
 .currently span {
   display: none;
 }
@@ -231,7 +299,13 @@ button::-moz-focus-inner {
   padding-bottom: 4rem;
 }
 
-.currently .time {
+@media screen and (min-width: 992px) {
+  .currently__time {
+    padding-bottom: 0;
+  }
+}
+
+.currently .time-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -249,6 +323,14 @@ button::-moz-focus-inner {
     font-size: 17.5rem;
     line-height: 17.5rem;
     letter-spacing: -4.38px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .currently .time-now {
+    font-size: 20rem;
+    line-height: 100%;
+    letter-spacing: -0.5rem;
   }
 }
 
@@ -324,6 +406,14 @@ button::-moz-focus-inner {
   }
 }
 
+@media screen and (min-width: 992px) {
+  .currently .expand {
+    -ms-flex-item-align: end;
+        align-self: flex-end;
+    margin-left: auto;
+  }
+}
+
 .currently .expand .arrow {
   width: 3.2rem;
   height: 3.2rem;
@@ -356,7 +446,7 @@ button::-moz-focus-inner {
   background: rgba(255, 255, 255, 0.75);
   -webkit-backdrop-filter: blur(40.7742px);
           backdrop-filter: blur(40.7742px);
-  padding: 4.8rem 0 3.2rem;
+  padding: 4.8rem 2.6rem 3.2rem;
   color: #303030;
   position: absolute;
   -webkit-transition: all 0.5s ease;
@@ -367,27 +457,24 @@ button::-moz-focus-inner {
 
 @media screen and (min-width: 768px) {
   .details {
-    padding: 12.4rem 0;
+    padding: 12.4rem 9rem 12.4rem 6.4rem;
     bottom: -44rem;
   }
 }
 
-.details .container {
-  padding-right: 9rem;
-}
-
 .details__contents {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[2];
-      grid-template-columns: repeat(2, 1fr);
-  -ms-grid-rows: (1fr)[2];
-      grid-template-rows: repeat(2, 1fr);
-      grid-template-areas: "region week-day" "day week-number";
+  max-width: 111rem;
 }
 
 @media screen and (min-width: 768px) {
   .details__contents {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2];
+        grid-template-columns: repeat(2, 1fr);
+    -ms-grid-rows: (1fr)[2];
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas: "region week-day" "day week-number";
     -webkit-column-gap: 8rem;
             column-gap: 8rem;
     row-gap: 4.8rem;
@@ -443,26 +530,18 @@ button::-moz-focus-inner {
 }
 
 .details__region {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
   grid-area: region;
 }
 
 .details__day {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
   grid-area: day;
 }
 
 .details__week-day {
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
   grid-area: week-day;
 }
 
 .details__week-number {
-  -ms-grid-row: 2;
-  -ms-grid-column: 2;
   grid-area: week-number;
 }
 
