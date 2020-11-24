@@ -135,10 +135,13 @@ button::-moz-focus-inner {
 
 @media screen and (min-width: 992px) {
   .top-widgets {
-    padding-top: 5.6rem;
-    padding-left: 16.5rem;
-    padding-bottom: 9.8rem;
-    padding-right: 0;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .top-widgets {
+    padding: 5.6rem 0 9.8rem;
   }
 }
 
@@ -234,11 +237,11 @@ button::-moz-focus-inner {
 
 @media screen and (min-width: 992px) {
   .currently {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-column-gap: 40rem;
-            column-gap: 40rem;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr max-content;
+        grid-template-columns: 1fr -webkit-max-content;
+        grid-template-columns: 1fr max-content;
   }
 }
 
@@ -311,6 +314,13 @@ button::-moz-focus-inner {
   display: flex;
 }
 
+@media screen and (min-width: 768px) {
+  .currently .time-wrapper {
+    -webkit-column-gap: 2rem;
+            column-gap: 2rem;
+  }
+}
+
 .currently .time-now {
   font-size: 10rem;
   line-height: 10rem;
@@ -351,9 +361,22 @@ button::-moz-focus-inner {
   }
 }
 
+@media screen and (min-width: 1200px) {
+  .currently .standard-time {
+    font-size: 4rem;
+    line-height: 2.8rem;
+  }
+}
+
 @media screen and (min-width: 768px) {
   .currently .standard-time .period {
     padding-bottom: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .currently .standard-time .period {
+    padding-bottom: 2rem;
   }
 }
 
@@ -367,6 +390,14 @@ button::-moz-focus-inner {
   .currently__location {
     font-size: 1.8rem;
     letter-spacing: 3.6px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .currently__location {
+    font-size: 2.4rem;
+    line-height: 2.8rem;
+    letter-spacing: 0.48rem;
   }
 }
 
@@ -457,8 +488,15 @@ button::-moz-focus-inner {
 
 @media screen and (min-width: 768px) {
   .details {
-    padding: 12.4rem 9rem 12.4rem 6.4rem;
+    padding: 11.9rem 6.4rem 11.9rem;
     bottom: -44rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .details {
+    padding: 7.4rem 16.5rem 8.4rem;
+    bottom: -40rem;
   }
 }
 
@@ -478,6 +516,12 @@ button::-moz-focus-inner {
     -webkit-column-gap: 8rem;
             column-gap: 8rem;
     row-gap: 4.8rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .details__contents {
+    row-gap: 5.8rem;
   }
 }
 
@@ -516,6 +560,14 @@ button::-moz-focus-inner {
   }
 }
 
+@media screen and (min-width: 992px) {
+  .details h4 {
+    font-size: 1.5rem;
+    line-height: 2.8rem;
+    letter-spacing: 0.3rem;
+  }
+}
+
 .details p {
   font-size: 2rem;
   line-height: 2.42rem;
@@ -526,6 +578,13 @@ button::-moz-focus-inner {
   .details p {
     font-size: 4rem;
     padding-top: 2rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .details p {
+    font-size: 5.6rem;
+    padding-top: 3.5rem;
   }
 }
 
@@ -554,6 +613,13 @@ button::-moz-focus-inner {
   .transform {
     -webkit-transform: translate3d(0, -44rem, 0);
             transform: translate3d(0, -44rem, 0);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .transform {
+    -webkit-transform: translate3d(0, -40rem, 0);
+            transform: translate3d(0, -40rem, 0);
   }
 }
 
