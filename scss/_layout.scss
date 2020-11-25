@@ -138,6 +138,7 @@
     font-size: 1.5rem;
     line-height: 2.5rem;
     letter-spacing: 0.3rem;
+    font-weight: 400;
 
     @include med {
       font-size: 1.8rem;
@@ -305,7 +306,6 @@
   width: 100%;
 
   @include med {
-    // padding: 12.4rem 9rem 12.4rem 6.4rem;
     padding: 11.9rem 6.4rem 11.9rem;
     bottom: -44rem;
   }

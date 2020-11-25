@@ -5,10 +5,12 @@ const details = document.querySelector('.details');
 const period = document.querySelector(".period");
 const expand = document.querySelector('.expand');
 
+function getQuote() {
+  axios.get('https://type.fit/api/quotes').then((quotesRes) => {
+  const quotesArray = quotesRes.data
+  const index = Math.floor(Math.random() * (quotesArray).length);
+  const chosenQuote = quotesArray[index];
 
-function getQuote(quotesArray) {
-  const index = Math.floor(Math.random() * quotesArray.length);
-	const chosenQuote = quotesArray[index];
   document.getElementById("quote").textContent = chosenQuote.text;
 	
 	if (chosenQuote.author == null) {
@@ -16,6 +18,7 @@ function getQuote(quotesArray) {
 	} else {
 		author.textContent = chosenQuote.author;
 	}
+  }).catch((err) => console.error(err))
 }
 
 function getTime() {
@@ -68,48 +71,55 @@ function getTime() {
   setTimeout(getTime,interval)
 }
 
-function getRegion(currently) {
-	document.querySelector('.region').textContent = currently.abbreviation;
+function getTimeZone() {
+  axios.get('https://worldtimeapi.org/api/ip')
+  .then((regionRes) => {
+    const region = regionRes.data;
+    //Local timezone
+    document.querySelector('.region').textContent = region.abbreviation
+    //Details
+    document.getElementById('timezone').textContent = region.timezone;
+    document.getElementById('year-day').textContent = region.day_of_year;
+    document.getElementById('week-day').textContent = region.day_of_week;
+    document.getElementById('week-number').textContent = region.week_number;
+  })
+  .catch(err => console.error(err));
 }
 
-function getLocation(ipLocation) {
-  const regionName = ipLocation.region_name;
-  const countryCode = ipLocation.country_code;
-  document.querySelector('.currently__location').textContent = `in ${regionName}, ${countryCode}`;
+function getLocation() {
+  axios.get('https://freegeoip.app/json/')
+  .then((locationRes) => {
+    const ipLocation = locationRes.data;
+    const regionName = ipLocation.region_name;
+    const countryCode = ipLocation.country_code;
+    document.querySelector('.currently__location').textContent = `in ${regionName}, ${countryCode}`;
+  })
+  .catch(err => console.error(err));
 }
 
-function getDetails(currently) {
-  document.getElementById('timezone').textContent = currently.timezone;
-  document.getElementById('year-day').textContent = currently.day_of_year;
-  document.getElementById('week-day').textContent = currently.day_of_week;
-  document.getElementById('week-number').textContent = currently.week_number;
-}
+// Promise
+//   .all([
+//     axios.get("https://type.fit/api/quotes"),
+//     axios.get('https://worldtimeapi.org/api/ip'),
+//     axios.get("https://freegeoip.app/json/")
+//   ]).catch(() => null)
+//   .then(
+//     axios.spread((quotes, time, location) => {
+//       // Display quotes
+//       const quotesArray = quotes.data;
+//       getQuote(quotesArray);
 
-Promise
-  .all([
-    axios.get("https://type.fit/api/quotes"),
-    axios.get('https://worldtimeapi.org/api/ip'),
-    axios.get("https://freegeoip.app/json/")
-  ]).catch(() => null)
-  .then(
-    axios.spread((quotes, time, location) => {
-      // Display quotes
-      const quotesArray = quotes.data;
-      getQuote(quotesArray);
+//       //Time now - user location
+//       const currently = time.data;      
+//       getRegion(currently)
+//       getDetails(currently);
 
-      //Time now - user location
-      const currently = time.data;      
-      getRegion(currently)
-      getDetails(currently);
-
-      //Location
-      const ipLocation = location.data;
-      getLocation(ipLocation);
-    })
-  )
-  .catch((err) => console.error(err));
-
-getTime();
+//       //Location
+//       const ipLocation = location.data;
+//       getLocation(ipLocation);
+//     })
+//   )
+//   .catch((err) => console.error(err));
 
 //Event listeners
 function showDetails() {
@@ -128,8 +138,10 @@ function showDetails() {
 expand.addEventListener('click', showDetails);
 
 //Random quote
-document.getElementById('refresh').addEventListener('click', function(){
-  axios.get('https://type.fit/api/quotes').then((quotesArray) => {
-    getQuote(quotesArray.data)
-  }).catch((err) => console.error(err))
-})
+document.getElementById('refresh').addEventListener('click', getQuote)
+
+getTime();
+getQuote();
+getTimeZone();
+getLocation()
+
