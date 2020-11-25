@@ -121,6 +121,11 @@ function getLocation() {
 //   )
 //   .catch((err) => console.error(err));
 
+getTime();
+getQuote();
+getTimeZone();
+getLocation()
+
 //Event listeners
 function showDetails() {
   document.querySelector('.top-widgets').classList.toggle('transform');
@@ -139,9 +144,4 @@ expand.addEventListener('click', showDetails);
 
 //Random quote
 document.getElementById('refresh').addEventListener('click', getQuote)
-
-getTime();
-getQuote();
-getTimeZone();
-getLocation()
 
