@@ -1,14 +1,3 @@
-.container {
-  max-width: 111rem;
-  // width: 90%;
-  padding: 0 2.6rem;
-  margin: 0 auto;
-
-  @include med {
-    padding: 0 13.1rem 0 6.4rem;
-  }
-}
-
 .background {
   height: 100%;
   background-size: cover;
@@ -20,7 +9,7 @@
   bottom: 0;
   right: 0;
   left: 0;
-  z-index: 0;
+  z-index: -1;
 
   &::before {
     content: "";
@@ -29,8 +18,8 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background: #000;
-    opacity: 0.4;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.4);
   }
 }
 
@@ -40,19 +29,28 @@
   height: 100%;
   transition: transform 0.5s ease;
 
+  padding: 3.17rem 2.6rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: $width;
+
   @include med {
-    padding: 8rem 0 6.4rem;
+    padding: 8rem 13.1rem 6.4rem 6.4rem;
   }
 
-  .container {
-    height: 100%;
+  @include lg {
+    margin: 0 auto;
+  }
+
+  @include xl {
+    padding: 5.6rem 0 9.8rem;
   }
 
   &__contents {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
   }
 }
 
@@ -60,6 +58,7 @@
   text-transform: initial;
   font-size: 1.2rem;
   line-height: 2.2rem;
+  max-width: 57.3rem;
 
   display: grid;
   grid-template-columns: 1fr 1.67rem;
@@ -68,13 +67,6 @@
   @include med {
     font-size: 1.8rem;
     line-height: 2.8rem;
-  }
-
-  &__random {
-    // display: grid;
-    // grid-template-columns: 1fr 1.67rem;
-    // column-gap: 1.6rem;
-    // padding-bottom: 0.8rem;
   }
 
   .author {
@@ -87,6 +79,10 @@
       font-size: 1.8rem;
       line-height: 2.8rem;
     }
+
+    @include lg {
+      padding: 1.3rem 0 9.8rem;
+    }
   }
 }
 
@@ -98,6 +94,10 @@
 
   @include med {
     margin-top: 0.3rem;
+  }
+
+  @include lg {
+    margin-top: 1rem;
   }
 
   svg {
@@ -115,15 +115,21 @@
 .currently {
   text-transform: uppercase;
 
+  @include lg {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+  }
+
   header {
     display: flex;
   }
 
   .icon {
     padding-right: 1.6rem;
+    animation: rotation 8s infinite linear;
 
     @include med {
-      height: 2.36rem;
+      height: 2.4rem;
     }
   }
 
@@ -138,6 +144,12 @@
       line-height: 2.8rem;
       letter-spacing: 0.36rem;
     }
+
+    @include lg {
+      font-size: 2rem;
+      line-height: 2.8rem;
+      letter-spacing: 0.4rem;
+    }
   }
 
   span {
@@ -150,10 +162,18 @@
 
   &__time {
     padding-bottom: 4rem;
+
+    @include lg {
+      padding-bottom: 0;
+    }
   }
 
-  .time {
+  .time-wrapper {
     display: flex;
+
+    @include med {
+      column-gap: 2rem;
+    }
   }
 
   .time-now {
@@ -166,6 +186,12 @@
       font-size: 17.5rem;
       line-height: 17.5rem;
       letter-spacing: -4.38px;
+    }
+
+    @include lg {
+      font-size: 20rem;
+      line-height: 100%;
+      letter-spacing: -0.5rem;
     }
   }
 
@@ -181,9 +207,17 @@
       padding-top: 6rem;
     }
 
+    @include xl {
+      font-size: 4rem;
+      line-height: 2.8rem;
+    }
+
     .period {
       @include med {
         padding-bottom: 1.2rem;
+      }
+      @include xl {
+        padding-bottom: 2rem;
       }
     }
   }
@@ -196,6 +230,12 @@
     @include med {
       font-size: 1.8rem;
       letter-spacing: 3.6px;
+    }
+
+    @include xl {
+      font-size: 2.4rem;
+      line-height: 2.8rem;
+      letter-spacing: 0.48rem;
     }
   }
 
@@ -227,6 +267,11 @@
       padding: 0.8rem 0.9rem 0.8rem 2.1rem;
     }
 
+    @include lg {
+      align-self: flex-end;
+      margin-left: auto;
+    }
+
     .arrow {
       width: 3.2rem;
       height: 3.2rem;
@@ -252,7 +297,7 @@
 .details {
   background: rgba(255, 255, 255, 0.75);
   backdrop-filter: blur(40.7742px);
-  padding: 4.8rem 0 3.2rem;
+  padding: 4.8rem 2.6rem 3.2rem;
   color: $dark-gray;
   position: absolute;
   transition: all 0.5s ease;
@@ -260,23 +305,28 @@
   width: 100%;
 
   @include med {
-    padding: 12.4rem 0;
+    // padding: 12.4rem 9rem 12.4rem 6.4rem;
+    padding: 11.9rem 6.4rem 11.9rem;
     bottom: -44rem;
   }
 
-  .container {
-    padding-right: 9rem;
+  @include xl {
+    padding: 7.4rem 16.5rem 8.4rem;
+    bottom: -40rem;
   }
 
   &__contents {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-template-areas: "region week-day" "day week-number";
-
+    max-width: $width;
     @include med {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-areas: "region week-day" "day week-number";
       column-gap: 8rem;
       row-gap: 4.8rem;
+    }
+    @include lg {
+      row-gap: 5.8rem;
     }
   }
 
@@ -303,6 +353,12 @@
       line-height: 2.8rem;
       letter-spacing: 0.26rem;
     }
+
+    @include lg {
+      font-size: 1.5rem;
+      line-height: 2.8rem;
+      letter-spacing: 0.3rem;
+    }
   }
 
   p {
@@ -313,6 +369,11 @@
     @include med {
       font-size: 4rem;
       padding-top: 2rem;
+    }
+
+    @include xl {
+      font-size: 5.6rem;
+      padding-top: 3.5rem;
     }
   }
 
@@ -335,5 +396,9 @@
 
   @include med {
     transform: translate3d(0, -44rem, 0);
+  }
+
+  @include xl {
+    transform: translate3d(0, -40rem, 0);
   }
 }

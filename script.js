@@ -1,4 +1,3 @@
-//DOM elements
 const background = document.querySelector('.background')
 const author = document.querySelector(".author")
 const icon = document.querySelector('.icon')

@@ -14,61 +14,58 @@
   <h1 class="sr-only">Clock app</h1>
   <div class="background"></div>
     <main class="top-widgets">
-      <div class="container">
-        <div class="top-widgets__contents">
-          <article class="quote-wrapper">
-            <div class="quote-wrapper__random">
-              <q id="quote"></q>
-              <h2 class="author"></h2>
-            </div>
-            <button id="refresh">
-              <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg">
-                <path
-                  d="M7.188 10.667a.208.208 0 01.147.355l-2.344 2.206a5.826 5.826 0 009.578-2.488l2.387.746A8.322 8.322 0 013.17 14.94l-2.149 2.022a.208.208 0 01-.355-.148v-6.148h6.52zm7.617-7.63L16.978.958a.208.208 0 01.355.146v6.23h-6.498a.208.208 0 01-.147-.356L13 4.765A5.825 5.825 0 003.43 7.26l-2.386-.746a8.32 8.32 0 0113.76-3.477z"
-                  fill-rule="nonzero" /></svg><span class="sr-only">Click the refresh icon</span></button>
-          </article>
-          <article class="currently">
-            <header>
-              <img class="icon">
-              <p class="currently__greeting"></p><span>, it's currently</span>
-            </header>
-            <section class="currently__time">
-              <div class="time">
-                <h2 class="time-now"></h2>
-                <div class="standard-time">
-                  <p class="period"></p>
-                  <p class="region"></p>
-                </div>
-              </div>
-              <h3 class="currently__location">in</h3>
-            </section>
-            <button class="expand">More<img src="./assets/desktop/icon-arrow-up.svg" alt="arrow icon" aria-hidden="true" class="arrow">
-            </button>
-          </article>
+      <article class="quote-wrapper">
+        <div class="quote-wrapper__random">
+          <q id="quote"></q>
+          <h2 class="author"></h2>
         </div>
-      </div>
+        <button id="refresh">
+          <svg width="18" height="18" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M7.188 10.667a.208.208 0 01.147.355l-2.344 2.206a5.826 5.826 0 009.578-2.488l2.387.746A8.322 8.322 0 013.17 14.94l-2.149 2.022a.208.208 0 01-.355-.148v-6.148h6.52zm7.617-7.63L16.978.958a.208.208 0 01.355.146v6.23h-6.498a.208.208 0 01-.147-.356L13 4.765A5.825 5.825 0 003.43 7.26l-2.386-.746a8.32 8.32 0 0113.76-3.477z"
+              fill-rule="nonzero" /></svg><span class="sr-only">Click the refresh icon</span></button>
+      </article>
+      <article class="currently">
+        <div class="widgets-wrapper">
+          <header>
+            <img class="icon">
+            <p class="currently__greeting"></p><span>, it's currently</span>
+          </header>
+          <section class="currently__time">
+            <div class="time-wrapper">
+              <h2 class="time-now"></h2>
+              <div class="standard-time">
+                <p class="period"></p>
+                <p class="region"></p>
+              </div>
+            </div>
+            <h3 class="currently__location">in</h3>
+          </section>
+        </div>
+        
+        <button class="expand">More<img src="./assets/desktop/icon-arrow-up.svg" alt="arrow icon" aria-hidden="true" class="arrow">
+        </button>
+      </article>
     </main>
     <article class="details">
-      <div class="container">
-        <ul class="details__contents">
-          <li class="details__region info">
-            <h4>Current timezone</h4>
-            <p id="timezone"></p>
-          </li>
-          <li class="details__day info">
-            <h4>Day of the year</h4>
-            <p id="year-day"></p>
-          </li>
-          <li class="details__week-day info">
-            <h4>Day of the week</h4>
-            <p id="week-day"></p>
-          </li>
-          <li class="details__week-number info">
-            <h4>Week number</h4>
-            <p id="week-number"></p>
-          </li>
-        </ul>
-      </div>
+      <ul class="details__contents">
+        <li class="details__region info">
+          <h4>Current timezone</h4>
+          <p id="timezone"></p>
+        </li>
+        <li class="details__day info">
+          <h4>Day of the year</h4>
+          <p id="year-day"></p>
+        </li>
+        <li class="details__week-day info">
+          <h4>Day of the week</h4>
+          <p id="week-day"></p>
+        </li>
+        <li class="details__week-number info">
+          <h4>Week number</h4>
+          <p id="week-number"></p>
+        </li>
+      </ul>
     </article>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="/script.js"></script>
