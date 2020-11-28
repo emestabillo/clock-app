@@ -253,8 +253,8 @@ button::-moz-focus-inner {
 
 .currently .icon {
   padding-right: 1.6rem;
-  -webkit-animation: rotation 8s infinite linear;
-          animation: rotation 8s infinite linear;
+  -webkit-animation: rotation 6s infinite linear;
+          animation: rotation 6s infinite linear;
 }
 
 @media screen and (min-width: 768px) {
