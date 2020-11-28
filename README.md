@@ -2,21 +2,13 @@
 
 ![Design preview for the Clock app coding challenge](./assets/preview.jpg)
 
-## Welcome! 👋
-
-Thanks for purchasing this premium Frontend Mentor coding challenge.
-
-[Frontend Mentor](https://www.frontendmentor.io) challenges allow you to improve your skills in a real-life workflow. These premium challenges are perfect portfolio pieces, so please do feel free to use what you build in your portfolio to show others.
-
-**To do this challenge, you need a solid understanding of HTML, CSS and JavaScript.**
-
 ## The challenge
 
 The challenge is to build out this clock application and get it looking as close to the design as possible using following APIs to retrieve the necessary data:
 
 - [World Time API](http://worldtimeapi.org/) to set the time based on the visitor's IP adress. This API will also be used for additional data, like the day of the year shown in the expanded state.
 - [IP Geolocation API](https://freegeoip.app/) to set the city and country underneath the time
-- [Programming Quotes API](https://api.quotable.io/random/) to generate random programming quotes.
+- [Quotes API](https://api.quotable.io/random/) to generate random quotes.
 
 ## User stories
 
@@ -29,7 +21,7 @@ Users should be able to:
 - Be shown the correct greeting and background image based on the time of day they're visiting the site
 - Generate random programming quotes by clicking the refresh icon near the quote
 
-### Expected Behaviour
+### Expected Behavior
 
 - The greeting changes depending on the time of day. It should say:
   - "Good morning" between 5am and 12pm
@@ -38,8 +30,13 @@ Users should be able to:
 - The greeting icon and background image also changes depending on the time of day. They should show:
   - The sun icon and the daytime background image between 5am and 6pm
   - The moon icon and the nighttime background image between 6pm and 5am
-- Generate a new random programming quote whenever the refresh icon is clicked
+- Generate a new random quote whenever the refresh icon is clicked
+
+### Features I added
+
+- Time automatically updates
+- 12-hour format
 
 ## Technologies I used
 
-- Axios, SCSS, BEM
+- APIs, Axios, SCSS, BEM, Figma for the design files
