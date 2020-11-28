@@ -6,12 +6,10 @@ const period = document.querySelector(".period");
 const expand = document.querySelector('.expand');
 
 function getQuote() {
-  axios.get('https://type.fit/api/quotes').then((quotesRes) => {
-  const quotesArray = quotesRes.data
-  const index = Math.floor(Math.random() * (quotesArray).length);
-  const chosenQuote = quotesArray[index];
+  axios.get('https://api.quotable.io/random').then((quotesRes) => {
+  const chosenQuote = quotesRes.data
 
-  document.getElementById("quote").textContent = chosenQuote.text;
+  document.getElementById("quote").textContent = chosenQuote.content;
 	
 	if (chosenQuote.author == null) {
 		author.textContent = 'Unknown author'
@@ -121,6 +119,11 @@ function getLocation() {
 //   )
 //   .catch((err) => console.error(err));
 
+getTime();
+getQuote();
+getTimeZone();
+getLocation()
+
 //Event listeners
 function showDetails() {
   document.querySelector('.top-widgets').classList.toggle('transform');
@@ -139,9 +142,4 @@ expand.addEventListener('click', showDetails);
 
 //Random quote
 document.getElementById('refresh').addEventListener('click', getQuote)
-
-getTime();
-getQuote();
-getTimeZone();
-getLocation()
 
