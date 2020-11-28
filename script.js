@@ -54,7 +54,10 @@ function getTime() {
     minute = "0" + minute
 	}
   
-  if (hour == 12) {
+  if (hour === 0) {
+    hour = 12
+    period.textContent = "am";
+  } else if (hour === 12) {
     period.textContent = "pm";
   } else if (hour > 12) {
     hour -= 12;
