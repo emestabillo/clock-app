@@ -73,7 +73,7 @@ function getTime() {
 }
 
 function getTimeZone() {
-  axios.get('https://worldtimeapi.org/api/ip')
+  axios.get('//worldtimeapi.org/api/ip')
   .then((regionRes) => {
     const region = regionRes.data;
     //Local timezone
