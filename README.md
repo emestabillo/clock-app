@@ -2,6 +2,8 @@
 
 ![Design preview for the Clock app coding challenge](./assets/preview.jpg)
 
+Frontendmentor.io submission page: https://www.frontendmentor.io/solutions/clock-app-npTvDit9h
+
 ## The challenge
 
 The challenge is to build out this clock application and get it looking as close to the design as possible using following APIs to retrieve the necessary data:
