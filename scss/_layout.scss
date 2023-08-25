@@ -125,12 +125,15 @@
   }
 
   .icon {
-    padding-right: 1.6rem;
     animation: rotation 6s infinite linear;
 
     @include med {
       height: 2.4rem;
     }
+  }
+
+  &__greeting {
+    padding-left: 1.6rem;
   }
 
   &__greeting,
