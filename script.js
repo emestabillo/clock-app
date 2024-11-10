@@ -92,14 +92,12 @@ function getTimeZone() {
 }
 
 function getLocation() {
-  const apiKey = locationApiKey;
   axios
-    .get(`https://api.ipbase.com/v2/info?apikey=${apiKey}`)
+    .get("https://api.ipbase.com/v1/json/")
     .then((locationRes) => {
-      const ipLocation = locationRes.data.data;
-      console.log(locationRes.data);
-      const regionName = ipLocation.location.region.name;
-      const countryCode = ipLocation.location.country.alpha3;
+      const ipLocation = locationRes.data;
+      const regionName = ipLocation.region_name;
+      const countryCode = ipLocation.country_code;
       document.querySelector(
         ".currently__location"
       ).textContent = `in ${regionName}, ${countryCode}`;
