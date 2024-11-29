@@ -7,12 +7,12 @@ const expand = document.querySelector(".expand");
 
 function getQuote() {
   axios
-    .get("https://api.quotable.io/quotes/random")
+    .get("https://programming-quotesapi.vercel.app/api/random")
     .then((quotesRes) => {
-      const chosenQuote = quotesRes.data[0];
+      const chosenQuote = quotesRes.data;
       console.log(chosenQuote);
 
-      document.getElementById("quote").textContent = chosenQuote.content;
+      document.getElementById("quote").textContent = chosenQuote.quote;
 
       if (chosenQuote.author == null) {
         author.textContent = "Unknown author";
