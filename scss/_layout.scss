@@ -126,6 +126,8 @@
 
   .icon {
     animation: rotation 6s infinite linear;
+    transform-box: fill-box;
+    transform-origin: center;
 
     @include med {
       height: 2.4rem;

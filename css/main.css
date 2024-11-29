@@ -1,52 +1,31 @@
-@-webkit-keyframes rotation {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  50% {
-    -webkit-transform: rotate(30deg);
-            transform: rotate(30deg);
-  }
-  100% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-}
-
 @keyframes rotation {
   0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   50% {
-    -webkit-transform: rotate(30deg);
-            transform: rotate(30deg);
+    transform: rotate(30deg);
   }
   100% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 }
-
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: inherit;
-          box-sizing: inherit;
+  box-sizing: inherit;
 }
 
 html {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-size: 62.5%;
   height: 100%;
 }
 
 body {
   font-family: "Inter", sans-serif;
-  color: white;
+  color: hsl(0, 0%, 100%);
   height: 100%;
   min-height: 100%;
   position: relative;
@@ -71,11 +50,9 @@ button {
   border: none;
   cursor: pointer;
 }
-
 button:focus {
-  outline: 2px dashed white;
+  outline: 2px dashed hsl(0, 0%, 100%);
 }
-
 button::-moz-focus-inner {
   border: 0;
 }
@@ -93,7 +70,6 @@ button::-moz-focus-inner {
   left: 0;
   z-index: -1;
 }
-
 .background::before {
   content: "";
   position: absolute;
@@ -109,53 +85,32 @@ button::-moz-focus-inner {
   padding: 3.17rem 0 4rem;
   position: relative;
   height: 100%;
-  -webkit-transition: -webkit-transform 0.5s ease;
-  transition: -webkit-transform 0.5s ease;
   transition: transform 0.5s ease;
-  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
   padding: 3.17rem 2.6rem 4rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
   max-width: 111rem;
 }
-
 @media screen and (min-width: 768px) {
   .top-widgets {
     padding: 8rem 13.1rem 6.4rem 6.4rem;
   }
 }
-
 @media screen and (min-width: 992px) {
   .top-widgets {
     margin: 0 auto;
   }
 }
-
 @media screen and (min-width: 1200px) {
   .top-widgets {
     padding: 5.6rem 0 9.8rem;
   }
 }
-
 .top-widgets__contents {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .quote-wrapper {
@@ -163,35 +118,29 @@ button::-moz-focus-inner {
   font-size: 1.2rem;
   line-height: 2.2rem;
   max-width: 57.3rem;
-  display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1.67rem;
-      grid-template-columns: 1fr 1.67rem;
-  -webkit-column-gap: 1.6rem;
-          column-gap: 1.6rem;
+  grid-template-columns: 1fr 1.67rem;
+  -moz-column-gap: 1.6rem;
+       column-gap: 1.6rem;
 }
-
 @media screen and (min-width: 768px) {
   .quote-wrapper {
     font-size: 1.8rem;
     line-height: 2.8rem;
   }
 }
-
 .quote-wrapper .author {
   font-weight: 700;
   padding-top: 0.8rem;
   font-size: 1.2rem;
   line-height: 2.2rem;
 }
-
 @media screen and (min-width: 768px) {
   .quote-wrapper .author {
     font-size: 1.8rem;
     line-height: 2.8rem;
   }
 }
-
 @media screen and (min-width: 992px) {
   .quote-wrapper .author {
     padding: 1.3rem 0 9.8rem;
@@ -204,29 +153,22 @@ button::-moz-focus-inner {
   cursor: pointer;
   background: none;
 }
-
 @media screen and (min-width: 768px) {
   #refresh {
     margin-top: 0.3rem;
   }
 }
-
 @media screen and (min-width: 992px) {
   #refresh {
     margin-top: 1rem;
   }
 }
-
 #refresh svg {
-  fill: white;
+  fill: hsl(0, 0%, 100%);
   outline: none;
-  -webkit-transition: -webkit-transform 0.15s linear;
-  transition: -webkit-transform 0.15s linear;
   transition: transform 0.15s linear;
-  transition: transform 0.15s linear, -webkit-transform 0.15s linear;
   opacity: 0.5;
 }
-
 #refresh svg:hover {
   opacity: 1;
 }
@@ -234,35 +176,28 @@ button::-moz-focus-inner {
 .currently {
   text-transform: uppercase;
 }
-
 @media screen and (min-width: 992px) {
   .currently {
-    display: -ms-grid;
     display: grid;
-    -ms-grid-columns: 1fr max-content;
-        grid-template-columns: 1fr -webkit-max-content;
-        grid-template-columns: 1fr max-content;
+    grid-template-columns: 1fr max-content;
   }
 }
-
 .currently header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .currently .icon {
-  padding-right: 1.6rem;
-  -webkit-animation: rotation 6s infinite linear;
-          animation: rotation 6s infinite linear;
+  animation: rotation 6s infinite linear;
+  transform-box: fill-box;
+  transform-origin: center;
 }
-
 @media screen and (min-width: 768px) {
   .currently .icon {
     height: 2.4rem;
   }
 }
-
+.currently__greeting {
+  padding-left: 1.6rem;
+}
 .currently__greeting,
 .currently span {
   font-size: 1.5rem;
@@ -270,7 +205,6 @@ button::-moz-focus-inner {
   letter-spacing: 0.3rem;
   font-weight: 400;
 }
-
 @media screen and (min-width: 768px) {
   .currently__greeting,
   .currently span {
@@ -279,7 +213,6 @@ button::-moz-focus-inner {
     letter-spacing: 0.36rem;
   }
 }
-
 @media screen and (min-width: 992px) {
   .currently__greeting,
   .currently span {
@@ -288,47 +221,37 @@ button::-moz-focus-inner {
     letter-spacing: 0.4rem;
   }
 }
-
 .currently span {
   display: none;
 }
-
 @media screen and (min-width: 500px) {
   .currently span {
     display: block;
   }
 }
-
 .currently__time {
   padding-bottom: 4rem;
 }
-
 @media screen and (min-width: 992px) {
   .currently__time {
     padding-bottom: 0;
   }
 }
-
 .currently .time-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 @media screen and (min-width: 768px) {
   .currently .time-wrapper {
-    -webkit-column-gap: 2rem;
-            column-gap: 2rem;
+    -moz-column-gap: 2rem;
+         column-gap: 2rem;
   }
 }
-
 .currently .time-now {
   font-size: 10rem;
   line-height: 10rem;
   letter-spacing: -2.5px;
   padding: 1.6rem 1.6rem 1.6rem 0;
 }
-
 @media screen and (min-width: 768px) {
   .currently .time-now {
     font-size: 17.5rem;
@@ -336,7 +259,6 @@ button::-moz-focus-inner {
     letter-spacing: -4.38px;
   }
 }
-
 @media screen and (min-width: 992px) {
   .currently .time-now {
     font-size: 20rem;
@@ -344,16 +266,12 @@ button::-moz-focus-inner {
     letter-spacing: -0.5rem;
   }
 }
-
 .currently .standard-time {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
   font-size: 1.5rem;
   padding-top: 3.7rem;
   font-weight: 300;
 }
-
 @media screen and (min-width: 768px) {
   .currently .standard-time {
     font-size: 3.2rem;
@@ -361,39 +279,33 @@ button::-moz-focus-inner {
     padding-top: 6rem;
   }
 }
-
 @media screen and (min-width: 1200px) {
   .currently .standard-time {
     font-size: 4rem;
     line-height: 2.8rem;
   }
 }
-
 @media screen and (min-width: 768px) {
   .currently .standard-time .period {
     padding-bottom: 1.2rem;
   }
 }
-
 @media screen and (min-width: 1200px) {
   .currently .standard-time .period {
     padding-bottom: 2rem;
   }
 }
-
 .currently__location {
   font-size: 1.5rem;
   line-height: 2.8rem;
   letter-spacing: 3px;
 }
-
 @media screen and (min-width: 768px) {
   .currently__location {
     font-size: 1.8rem;
     letter-spacing: 3.6px;
   }
 }
-
 @media screen and (min-width: 1200px) {
   .currently__location {
     font-size: 2.4rem;
@@ -401,7 +313,6 @@ button::-moz-focus-inner {
     letter-spacing: 0.48rem;
   }
 }
-
 .currently .expand {
   border-radius: 2.8rem;
   width: 11.5rem;
@@ -415,18 +326,11 @@ button::-moz-focus-inner {
   letter-spacing: 3.75px;
   border: none;
   cursor: pointer;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
   padding: 1px 0.5rem 0 1.5rem;
 }
-
 @media screen and (min-width: 768px) {
   .currently .expand {
     width: 14.6rem;
@@ -437,41 +341,29 @@ button::-moz-focus-inner {
     padding: 0.8rem 0.9rem 0.8rem 2.1rem;
   }
 }
-
 @media screen and (min-width: 992px) {
   .currently .expand {
-    -ms-flex-item-align: end;
-        align-self: flex-end;
+    align-self: flex-end;
     margin-left: auto;
   }
 }
-
 .currently .expand .arrow {
   width: 3.2rem;
   height: 3.2rem;
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-  -webkit-transition: -webkit-transform 0.5s, -webkit-filter 0.2s;
-  transition: -webkit-transform 0.5s, -webkit-filter 0.2s;
+  transform: rotate(180deg);
   transition: transform 0.5s, filter 0.2s;
-  transition: transform 0.5s, filter 0.2s, -webkit-transform 0.5s, -webkit-filter 0.2s;
 }
-
 .currently .expand .arrow:hover {
-  -webkit-filter: brightness(330%);
-          filter: brightness(330%);
+  filter: brightness(330%);
 }
-
 @media screen and (min-width: 768px) {
   .currently .expand .arrow {
     width: 4rem;
     height: 4rem;
   }
 }
-
 .currently .expand .rotate {
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
 .details {
@@ -479,80 +371,61 @@ button::-moz-focus-inner {
   -webkit-backdrop-filter: blur(40.7742px);
           backdrop-filter: blur(40.7742px);
   padding: 4.8rem 2.6rem 3.2rem;
-  color: #303030;
+  color: hsl(0, 0%, 19%);
   position: absolute;
-  -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   bottom: -25.6rem;
   width: 100%;
 }
-
 @media screen and (min-width: 768px) {
   .details {
     padding: 11.9rem 6.4rem 11.9rem;
     bottom: -44rem;
   }
 }
-
 @media screen and (min-width: 1200px) {
   .details {
     padding: 7.4rem 16.5rem 8.4rem;
     bottom: -40rem;
   }
 }
-
 .details__contents {
   max-width: 111rem;
 }
-
 @media screen and (min-width: 768px) {
   .details__contents {
-    display: -ms-grid;
     display: grid;
-    -ms-grid-columns: (1fr)[2];
-        grid-template-columns: repeat(2, 1fr);
-    -ms-grid-rows: (1fr)[2];
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-areas: "region week-day" "day week-number";
-    -webkit-column-gap: 8rem;
-            column-gap: 8rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-areas: "region week-day" "day week-number";
+    -moz-column-gap: 8rem;
+         column-gap: 8rem;
     row-gap: 4.8rem;
   }
 }
-
 @media screen and (min-width: 992px) {
   .details__contents {
     row-gap: 5.8rem;
   }
 }
-
 .details .info {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   padding-bottom: 1.6rem;
 }
-
 @media screen and (min-width: 768px) {
   .details .info {
     display: unset;
     padding-bottom: 0;
   }
 }
-
 .details h4 {
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 2px;
   line-height: 2.8rem;
 }
-
 @media screen and (min-width: 768px) {
   .details h4 {
     font-size: 1.3rem;
@@ -560,7 +433,6 @@ button::-moz-focus-inner {
     letter-spacing: 0.26rem;
   }
 }
-
 @media screen and (min-width: 992px) {
   .details h4 {
     font-size: 1.5rem;
@@ -568,72 +440,58 @@ button::-moz-focus-inner {
     letter-spacing: 0.3rem;
   }
 }
-
 .details p {
   font-size: 2rem;
   line-height: 2.42rem;
   font-weight: 700;
 }
-
 @media screen and (min-width: 768px) {
   .details p {
     font-size: 4rem;
     padding-top: 2rem;
   }
 }
-
 @media screen and (min-width: 1200px) {
   .details p {
     font-size: 5.6rem;
     padding-top: 3.5rem;
   }
 }
-
 .details__region {
   grid-area: region;
 }
-
 .details__day {
   grid-area: day;
 }
-
 .details__week-day {
   grid-area: week-day;
 }
-
 .details__week-number {
   grid-area: week-number;
 }
 
 .transform {
-  -webkit-transform: translate3d(0, -25.6rem, 0);
-          transform: translate3d(0, -25.6rem, 0);
+  transform: translate3d(0, -25.6rem, 0);
 }
-
 @media screen and (min-width: 768px) {
   .transform {
-    -webkit-transform: translate3d(0, -44rem, 0);
-            transform: translate3d(0, -44rem, 0);
+    transform: translate3d(0, -44rem, 0);
   }
 }
-
 @media screen and (min-width: 1200px) {
   .transform {
-    -webkit-transform: translate3d(0, -40rem, 0);
-            transform: translate3d(0, -40rem, 0);
+    transform: translate3d(0, -40rem, 0);
   }
 }
 
 .day {
   background-image: url(../assets/mobile/bg-image-daytime.jpg);
 }
-
 @media screen and (min-width: 768px) {
   .day {
     background-image: url(../assets/tablet/bg-image-daytime.jpg);
   }
 }
-
 @media screen and (min-width: 992px) {
   .day {
     background-image: url(../assets/desktop/bg-image-daytime.jpg);
@@ -643,16 +501,13 @@ button::-moz-focus-inner {
 .night {
   background-image: url(../assets/mobile/bg-image-nighttime.jpg);
 }
-
 @media screen and (min-width: 768px) {
   .night {
     background-image: url(../assets/tablet/bg-image-nighttime.jpg);
   }
 }
-
 @media screen and (min-width: 992px) {
   .night {
     background-image: url(../assets/desktop/bg-image-nighttime.jpg);
   }
-}
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */
